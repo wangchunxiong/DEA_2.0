@@ -1,0 +1,126 @@
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\Xceed.Wpf.AvalonDock.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\Xceed.Wpf.AvalonDock.pdb
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.csprojResolveAssemblyReference.cache
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock_MarkupCompile.cache
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock_MarkupCompile.lref
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Themes\generic.baml
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.g.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.hu.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.it.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.fr.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.es.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.pt-BR.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.ru.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.de.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.sv.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.zh-Hans.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.ro.resources
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.csproj.GenerateResource.Cache
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.dll
+D:\360安全浏览器下载\avalondock-102592\Version2.0\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.pdb
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\Xceed.Wpf.AvalonDock.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\Xceed.Wpf.AvalonDock.pdb
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.csprojResolveAssemblyReference.cache
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock_MarkupCompile.cache
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock_MarkupCompile.lref
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Themes\generic.baml
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.g.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.hu.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.it.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.fr.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.es.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.pt-BR.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.ru.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.de.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.sv.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.zh-Hans.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.ro.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.csproj.GenerateResource.Cache
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\Xceed.Wpf.AvalonDock.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\Xceed.Wpf.AvalonDock.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.csprojResolveAssemblyReference.cache
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock_MarkupCompile.cache
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock_MarkupCompile.lref
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Themes\generic.baml
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.g.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.hu.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.it.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.fr.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.es.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.pt-BR.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.ru.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.de.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.sv.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.zh-Hans.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.Properties.Resources.ro.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.csproj.GenerateResource.Cache
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\Xceed.Wpf.AvalonDock.pdb

@@ -1,0 +1,72 @@
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Expression.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.pdb
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Expression.pdb
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.pdb
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.pdb
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3.csprojResolveAssemblyReference.cache
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\MainWindow.g.cs
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\App.g.cs
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\MainWindow.baml
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\AvalonDock.TestApp.UserControl1.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3.csproj.GenerateResource.Cache
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\DEA3.exe.config
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3_MarkupCompile.cache
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3_MarkupCompile.lref
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\DEA3.exe
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\bin\Debug\DEA3.pdb
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3.g.resources
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3.exe
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3.pdb
+D:\360安全浏览器下载\avalondock-102592\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3_Content.g.cs
+E:\users\wcx\documents\visual studio 2015\Projects\version2.0_DEA\AvalonDock.TestApp\bin\Debug\DEA3.exe.config
+E:\users\wcx\documents\visual studio 2015\Projects\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3.exe
+E:\users\wcx\documents\visual studio 2015\Projects\version2.0_DEA\AvalonDock.TestApp\obj\x86\Debug\DEA3.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\DEA3.exe
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Expression.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Expression.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\MainWindow.g.cs
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\App.g.cs
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\DEA3_Content.g.cs
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\DEA3_MarkupCompile.cache
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\DEA3_MarkupCompile.lref
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\MainWindow.baml
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\DEA3.g.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\AvalonDock.TestApp.UserControl1.resources
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\DEA3.csproj.GenerateResource.Cache
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\DEA3.exe
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\DEA3.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\DEA3.exe.config
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\obj\x86\Debug\DEA3.csprojResolveAssemblyReference.cache
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\AvalonDock.TestApp\bin\Debug\DEA3.pdb
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA2.0\AvalonDock.TestApp\bin\Debug\DEA3.exe.config
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA2.0\AvalonDock.TestApp\obj\x86\Debug\DEA3.exe
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA2.0\AvalonDock.TestApp\obj\x86\Debug\DEA3.pdb
