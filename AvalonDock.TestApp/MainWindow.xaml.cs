@@ -268,26 +268,40 @@ namespace DEA3
 
 
         /// <summary>
-        /// 树型新增DEA
+        /// 新增DEA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MenuItem_AddDea_Click(object sender, RoutedEventArgs e)
         {
-            Node node = (Node)sender;
+            //TreeViewItem treeViewItem = (TreeViewItem)TreeView_Project.SelectedItem;
+            Node node = TreeView_Project.SelectedValue as Node;
+
             var currentNode = FindTheNode(nodeList, node.NodeId);
+            
             if (currentNode != null)
             {
-                if (currentNode.nodetype == NodeType.LeafNode)
+                if (currentNode.nodetype != NodeType.RootNode)
                 {
-                    MessageBox.Show("叶子节点不支持新增节点操作!");
+                    MessageBox.Show("当前节点不支持新增DEA!");
                 }
                 else
                 {
-                    MessageBox.Show("开始新增节点操作!");
+                    Node l_node = new Node();
+                    l_node.NodeName = "DEA";
+                    l_node.NodeContent = "DEA";
+                    l_node.nodetype = NodeType.DeaNode;
+                    l_node.Nodes = new List<Node>();
+
+                    currentNode.Nodes = new List<Node>() { l_node };
+                    
+                    display.Text = "增加了DEA";
                 }
             }
         }
+
+
+        
 
         /// <summary>
         /// 树型删除DEA
@@ -300,7 +314,7 @@ namespace DEA3
             var currentNode = FindTheNode(nodeList, node.NodeId);
             if (currentNode != null)
             {
-                if (currentNode.nodetype != NodeType.LeafNode)
+                if (currentNode.nodetype != NodeType.DeaNode)
                 {
                     MessageBox.Show("非叶子节点不支持删除操作!");
                 }
@@ -344,17 +358,7 @@ namespace DEA3
             }
             return findedNode;
         }
-
-
-
-        public List<Node> nodeList { get; set; }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            nodeList = GetNodeList();
-            this.TreeView_Project.ItemsSource = nodeList;
-            //ExpandTree();
-        }
-
+         
 
         private void DeleteTheNode(List<Node> nodeList, Node deleteNode)
         {
@@ -371,24 +375,63 @@ namespace DEA3
             }
         }
 
-        private void TreeView_MenuItem_DelCom_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
+        private void TreeView_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        { 
             var treeViewItem = VisualUpwardSearch<TreeViewItem>(e.OriginalSource as DependencyObject) as TreeViewItem;
-            if (treeViewItem != null)
+            Node currentNode = treeViewItem.Header as Node;
+            if (treeViewItem != null &&
+                currentNode.nodetype==NodeType.DeaNode ||
+                currentNode.nodetype == NodeType.ComNode ||
+                currentNode.nodetype == NodeType.DeviceNode ||
+                currentNode.nodetype == NodeType.RootNode )
             {
-                Node currentNode = treeViewItem.Header as Node;
-                if (currentNode.nodetype != NodeType.LeafNode)
-                {
-                    TreeView_MenuItem_AddDea.IsEnabled = true;
-                    TreeView_MenuItem_DelDea.IsEnabled = false;
-                }
-                else
-                {
-                    TreeView_MenuItem_AddDea.IsEnabled = false;
-                    TreeView_MenuItem_DelDea.IsEnabled = true;
-                }
                 treeViewItem.Focus();
                 e.Handled = true;
+                switch (currentNode.nodetype)
+                {
+                    case NodeType.RootNode:
+                        TreeView_MenuItem_AddDea.IsEnabled = true;
+                        TreeView_MenuItem_AddCom.IsEnabled = false;
+                        TreeView_MenuItem_AddDevice.IsEnabled = false;
+                        TreeView_MenuItem_DelDea.IsEnabled = false;
+                        TreeView_MenuItem_DelCom.IsEnabled = false;
+                        TreeView_MenuItem_DelDevice.IsEnabled = false;
+                        break;
+                    case NodeType.DeaNode:
+                        TreeView_MenuItem_AddDea.IsEnabled = false;
+                        TreeView_MenuItem_AddCom.IsEnabled = true;
+                        TreeView_MenuItem_AddDevice.IsEnabled = false;
+                        TreeView_MenuItem_DelDea.IsEnabled = true;
+                        TreeView_MenuItem_DelCom.IsEnabled = false;
+                        TreeView_MenuItem_DelDevice.IsEnabled = false;
+                        break;
+                    case NodeType.ComNode:
+                        TreeView_MenuItem_AddDea.IsEnabled = false;
+                        TreeView_MenuItem_AddCom.IsEnabled = false;
+                        TreeView_MenuItem_AddDevice.IsEnabled = true;
+                        TreeView_MenuItem_DelDea.IsEnabled = false;
+                        TreeView_MenuItem_DelCom.IsEnabled = true;
+                        TreeView_MenuItem_DelDevice.IsEnabled = false;
+                        break;
+                    case NodeType.DeviceNode:
+                        TreeView_MenuItem_AddDea.IsEnabled = false;
+                        TreeView_MenuItem_AddCom.IsEnabled = false;
+                        TreeView_MenuItem_AddDevice.IsEnabled = false;
+                        TreeView_MenuItem_DelDea.IsEnabled = false;
+                        TreeView_MenuItem_DelCom.IsEnabled = false;
+                        TreeView_MenuItem_DelDevice.IsEnabled = true;
+                        break;
+                    default:
+                        TreeView_MenuItem_AddDea.IsEnabled = false;
+                        TreeView_MenuItem_AddCom.IsEnabled = false;
+                        TreeView_MenuItem_AddDevice.IsEnabled = false;
+                        TreeView_MenuItem_DelDea.IsEnabled = false;
+                        TreeView_MenuItem_DelCom.IsEnabled = false;
+                        TreeView_MenuItem_DelDevice.IsEnabled = false;
+                        break;
+                } 
+                //测试语句
+                display.Text = currentNode.NodeName + "|" + currentNode.nodetype;
             }
         }
 
@@ -400,48 +443,70 @@ namespace DEA3
             }
             return source;
         }
-
-
-
-
+        
         private List<Node> GetNodeList()
         {
             Node leafOneNode = new Node();
             leafOneNode.NodeName = "叶子节点一";
             leafOneNode.NodeContent = "我是叶子节点一";
-            leafOneNode.nodetype = NodeType.LeafNode;
+            leafOneNode.nodetype = NodeType.DeviceNode;
             leafOneNode.Nodes = new List<Node>();
 
             Node leafTwoNode = new Node();
             leafTwoNode.NodeName = "叶子节点二";
             leafTwoNode.NodeContent = "我是叶子节点二";
-            leafTwoNode.nodetype = NodeType.LeafNode;
+            leafTwoNode.nodetype = NodeType.DeviceNode;
             leafTwoNode.Nodes = new List<Node>();
 
             Node leafThreeNode = new Node();
             leafThreeNode.NodeName = "叶子节点三";
             leafThreeNode.NodeContent = "我是叶子节点三";
-            leafThreeNode.nodetype = NodeType.LeafNode;
+            leafThreeNode.nodetype = NodeType.DeviceNode;
             leafThreeNode.Nodes = new List<Node>();
 
             Node secondLevelNode = new Node();
             secondLevelNode.NodeName = "二级节点";
             secondLevelNode.NodeContent = "我是二级节点";
-            secondLevelNode.nodetype = NodeType.StructureNode;
+            secondLevelNode.nodetype = NodeType.ComNode;
             secondLevelNode.Nodes = new List<Node>() { leafOneNode, leafTwoNode, leafThreeNode };
 
             Node firstLevelNode = new Node();
             firstLevelNode.NodeName = "一级节点";
             firstLevelNode.NodeContent = "我是一级节点";
-            firstLevelNode.nodetype = NodeType.StructureNode;
+            firstLevelNode.nodetype = NodeType.DeaNode;
             firstLevelNode.Nodes = new List<Node>() { secondLevelNode };
 
             return new List<Node>()
             {
-                new Node(){NodeName="根节点",NodeContent="我是根节点",nodetype=NodeType.RootNode,Nodes=new List<Node>(){firstLevelNode}}
+                new Node(){NodeName="工程",NodeContent="我是根节点",nodetype=NodeType.RootNode,Nodes=new List<Node>(){firstLevelNode}}
             };
         }
 
+        public List<Node> nodeList { get; set; }
+        private void TreeView_Project_Loaded(object sender, RoutedEventArgs e)
+        {
+            nodeList = GetNodeList();
+            TreeView_Project.ItemsSource = nodeList;
+            ExpandTree();
+        }
+
+        //展开所有节点
+        private void ExpandTree()
+        {
+            if (this.TreeView_Project.Items != null && this.TreeView_Project.Items.Count > 0)
+            {
+                foreach (var item in this.TreeView_Project.Items)
+                {
+                    DependencyObject dependencyObject = this.TreeView_Project.ItemContainerGenerator.ContainerFromItem(item);
+                    if (dependencyObject != null)//第一次打开程序，dependencyObject为null，会出错
+                    {
+                        ((TreeViewItem)dependencyObject).ExpandSubtree();
+                    }
+                }
+
+            }
+        }
+         
         ////
         ////树型鼠标事件
         ////
