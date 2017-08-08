@@ -19,6 +19,7 @@
                     <MenuItem Name="Menu_file_save" Header="保存"></MenuItem>
                     <MenuItem Name="Menu_Sys_exit" Header="退出" Click="Menu_Sys_exit_Click"></MenuItem>
                     <MenuItem Name="Menu_file_AddNew" Header="添加新选项卡" Click="item_AddNew_Click"></MenuItem>
+                    <MenuItem Name="Menu_Test" Header="测试" Click="Menu_Test_Click"></MenuItem>
                 </MenuItem>
                 <MenuItem Name="Menu_Sys" Header="系统(S)">
                     <MenuItem Name="Menu_Sys_con" Header="联机"></MenuItem>
@@ -87,37 +88,29 @@
                         <avalonDock:LayoutPanel>
                             <avalonDock:LayoutAnchorablePane  x:Name="layOutPaneTree" DockWidth="150">
                                 <avalonDock:LayoutAnchorable Title="工程" >
-                                    <TreeView Name="TreeView_Project" Height="auto" BorderBrush="Khaki" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  MinWidth="150" Width="auto" Loaded="TreeView_Project_Loaded">
 
-                                        <TreeView.Resources>
-                                            <HierarchicalDataTemplate DataType="{x:Type local:Node}" ItemsSource="{Binding Nodes,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-                                                <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
-                                                    <TextBlock Text="{Binding NodeName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding NodeName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                                                </StackPanel>
+                                    <TreeView Name="TreeView_Project" ItemsSource="{Binding NodeCollection,Mode=TwoWay}" Height="auto" BorderBrush="Khaki" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  MinWidth="150" Width="auto" Loaded="TreeView_Project_Loaded">
+                                        <TreeView.ItemTemplate>
+                                            <HierarchicalDataTemplate  ItemsSource="{Binding ChildrenEntityTree}" >
+                                                <TextBlock Text="{Binding CurrentBaseEntity.Name}" ToolTip="{Binding CurrentBaseEntity.Name}"/>
                                             </HierarchicalDataTemplate>
-                                        </TreeView.Resources>
+                                        </TreeView.ItemTemplate>
 
                                         <TreeView.ContextMenu>
                                             <ContextMenu x:Name="TreeView_Project_EditNode">
-                                                <MenuItem Header="新增DEA" Name="TreeView_MenuItem_AddDea" IsEnabled="False" Click="MenuItem_AddDea_Click" >
+                                                <MenuItem Header="新增" Name="TreeView_MenuItem_Add" IsEnabled="False" Click="TreeView_MenuItem_Add_Click"  >
                                                 </MenuItem>
-                                                <MenuItem Header="新增COM口" Name="TreeView_MenuItem_AddCom" IsEnabled="False">
-                                                </MenuItem>
-                                                <MenuItem Header="新增设备" Name="TreeView_MenuItem_AddDevice" IsEnabled="False">
-                                                </MenuItem>
-                                                <MenuItem Header="删除DEA" Name="TreeView_MenuItem_DelDea" IsEnabled="False" Click="MenuItem_DeleteDea_Click">
-                                                </MenuItem>
-                                                <MenuItem Header="删除COM口" Name="TreeView_MenuItem_DelCom" IsEnabled="False" >
-                                                </MenuItem>
-                                                <MenuItem Header="删除设备" Name="TreeView_MenuItem_DelDevice" IsEnabled="False">
+                                                <MenuItem Header="删除" Name="TreeView_MenuItem_Del" IsEnabled="False" Click="TreeView_MenuItem_Del_Click" >
                                                 </MenuItem>
                                             </ContextMenu>
                                         </TreeView.ContextMenu>
+                                        
                                         <TreeView.ItemContainerStyle>
                                             <Style TargetType="{x:Type TreeViewItem}">
                                                 <EventSetter Event="TreeViewItem.PreviewMouseRightButtonDown" Handler="TreeView_PreviewMouseRightButtonDown"/>
                                             </Style>
                                         </TreeView.ItemContainerStyle>
+                                        
                                     </TreeView>
                                 </avalonDock:LayoutAnchorable>
                             </avalonDock:LayoutAnchorablePane>
@@ -127,7 +120,8 @@
                                 <avalonDock:LayoutDocumentPane x:Name="layOutPaneContent">
                                     <avalonDock:LayoutDocument Title="Document1" IconSource="image/alarm-clock-blue.png">
                                         <StackPanel>
-                                            <TextBox Name="display" Width="300" ></TextBox>
+                                            <TextBox Name="display" Width="800" ></TextBox>
+                                            <TextBox Name="findText" Width="800" ></TextBox>
                                         </StackPanel>
                                     </avalonDock:LayoutDocument>
                                 </avalonDock:LayoutDocumentPane>

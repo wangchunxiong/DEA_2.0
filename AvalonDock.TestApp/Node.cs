@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
 namespace DEA3
 {
-    public class Node
+    public class Node 
     {
         public Node()
         {
             this.NodeId = Guid.NewGuid().ToString();
             this.IsDeleted = false;
-            this.Nodes = new List<Node>();
+            this.Nodes = new ObservableCollection<Node>();
         }
 
         /// <summary>
@@ -34,6 +35,12 @@ namespace DEA3
         /// </summary>
         public bool IsDeleted { get; set; }
 
+
+        /// <summary>
+        /// 父节点
+        /// </summary>
+        public Node ParentNode { get; set; }
+
         /// <summary>
         /// 节点类型
         /// </summary>
@@ -42,7 +49,7 @@ namespace DEA3
         /// <summary>
         /// 子节点集合
         /// </summary>
-        public List<Node> Nodes { get; set; }
+        public ObservableCollection<Node> Nodes { get; set; }
          
     }
     public enum NodeType

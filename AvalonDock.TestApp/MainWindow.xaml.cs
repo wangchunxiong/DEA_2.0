@@ -24,7 +24,8 @@ using System.Collections;
 using Xceed.Wpf.AvalonDock;
 using System.Runtime.InteropServices;
 using Xceed.Wpf.AvalonDock.Themes;
-using System.ComponentModel; 
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace DEA3
 {
@@ -265,229 +266,64 @@ namespace DEA3
                 hKeyboardHook = SetWindowsHookEx(WH_KEYBOARD_LL, KeyboardHookProcedure, GetModuleHandle(curModule.ModuleName), 0);
             }
         }
+        ////////////////////////////////////////////////////////////////////
+        ///////////////////////树型生成即操作///////////////////////////
+        ////////////////////////////////////////////////////////////////////
+        //声明数据源对象
+        ViewModel _viewModel = new ViewModel();
 
 
-        /// <summary>
-        /// 新增DEA
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MenuItem_AddDea_Click(object sender, RoutedEventArgs e)
-        {
-            //TreeViewItem treeViewItem = (TreeViewItem)TreeView_Project.SelectedItem;
-            Node node = TreeView_Project.SelectedValue as Node;
-
-            var currentNode = FindTheNode(nodeList, node.NodeId);
-            
-            if (currentNode != null)
-            {
-                if (currentNode.nodetype != NodeType.RootNode)
-                {
-                    MessageBox.Show("当前节点不支持新增DEA!");
-                }
-                else
-                {
-                    Node l_node = new Node();
-                    l_node.NodeName = "DEA";
-                    l_node.NodeContent = "DEA";
-                    l_node.nodetype = NodeType.DeaNode;
-                    l_node.Nodes = new List<Node>();
-
-                    currentNode.Nodes = new List<Node>() { l_node };
-                    
-                    display.Text = "增加了DEA";
-                }
-            }
-        }
-
-
-        
-
-        /// <summary>
-        /// 树型删除DEA
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MenuItem_DeleteDea_Click(object sender, RoutedEventArgs e)
-        {
-            Node node = (Node)sender;
-            var currentNode = FindTheNode(nodeList, node.NodeId);
-            if (currentNode != null)
-            {
-                if (currentNode.nodetype != NodeType.DeaNode)
-                {
-                    MessageBox.Show("非叶子节点不支持删除操作!");
-                }
-                else
-                {
-                    MessageBoxResult dr = MessageBox.Show("确定要删除这个节点吗？", "提示", MessageBoxButton.OKCancel);
-                    if (dr == MessageBoxResult.OK)
-                    {
-                        DeleteTheNode(nodeList, currentNode);
-                        MessageBox.Show("成功删除节点！");
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// 递归查询节点
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private Node FindTheNode(List<Node> nodeList, string nodeId)
-        {
-            Node findedNode = new Node();
-            foreach (Node node in nodeList)
-            {
-                if (node.Nodes != null && node.Nodes.Count > 0)
-                {
-                    if ((findedNode = FindTheNode(node.Nodes, nodeId)) != null)
-                    {
-                        return findedNode;
-                    }
-                }
-                if (node.NodeId == nodeId)
-                {
-                    return node;
-                }
-            }
-            return findedNode;
-        }
-         
-
-        private void DeleteTheNode(List<Node> nodeList, Node deleteNode)
-        {
-            foreach (Node node in nodeList)
-            {
-                if (node.Nodes != null && node.Nodes.Count > 0)
-                {
-                    DeleteTheNode(node.Nodes, deleteNode);
-                }
-                if (node == deleteNode)
-                {
-                    node.IsDeleted = true;
-                }
-            }
-        }
 
         private void TreeView_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        { 
-            var treeViewItem = VisualUpwardSearch<TreeViewItem>(e.OriginalSource as DependencyObject) as TreeViewItem;
-            Node currentNode = treeViewItem.Header as Node;
-            if (treeViewItem != null &&
-                currentNode.nodetype==NodeType.DeaNode ||
-                currentNode.nodetype == NodeType.ComNode ||
-                currentNode.nodetype == NodeType.DeviceNode ||
-                currentNode.nodetype == NodeType.RootNode )
+        {  //设置当前选择节点
+            _viewModel.CurrentSelecteEntityTree = TreeView_Project.SelectedItem as BaseEntityTree; 
+             
+            if (_viewModel.CurrentSelecteEntityTree != null )
             {
-                treeViewItem.Focus();
+                TreeView_Project.Focus(); 
                 e.Handled = true;
-                switch (currentNode.nodetype)
+                switch (_viewModel.CurrentSelecteEntityTree.Depti)
                 {
-                    case NodeType.RootNode:
-                        TreeView_MenuItem_AddDea.IsEnabled = true;
-                        TreeView_MenuItem_AddCom.IsEnabled = false;
-                        TreeView_MenuItem_AddDevice.IsEnabled = false;
-                        TreeView_MenuItem_DelDea.IsEnabled = false;
-                        TreeView_MenuItem_DelCom.IsEnabled = false;
-                        TreeView_MenuItem_DelDevice.IsEnabled = false;
+                    case 1:
+                        TreeView_MenuItem_Add.IsEnabled = true;
+                        TreeView_MenuItem_Del.IsEnabled = true;
                         break;
-                    case NodeType.DeaNode:
-                        TreeView_MenuItem_AddDea.IsEnabled = false;
-                        TreeView_MenuItem_AddCom.IsEnabled = true;
-                        TreeView_MenuItem_AddDevice.IsEnabled = false;
-                        TreeView_MenuItem_DelDea.IsEnabled = true;
-                        TreeView_MenuItem_DelCom.IsEnabled = false;
-                        TreeView_MenuItem_DelDevice.IsEnabled = false;
+                    case 2:
+                        TreeView_MenuItem_Add.IsEnabled = true;
+                        TreeView_MenuItem_Del.IsEnabled = true;
                         break;
-                    case NodeType.ComNode:
-                        TreeView_MenuItem_AddDea.IsEnabled = false;
-                        TreeView_MenuItem_AddCom.IsEnabled = false;
-                        TreeView_MenuItem_AddDevice.IsEnabled = true;
-                        TreeView_MenuItem_DelDea.IsEnabled = false;
-                        TreeView_MenuItem_DelCom.IsEnabled = true;
-                        TreeView_MenuItem_DelDevice.IsEnabled = false;
+                    case 3:
+                        TreeView_MenuItem_Add.IsEnabled = true;
+                        TreeView_MenuItem_Del.IsEnabled = true;
                         break;
-                    case NodeType.DeviceNode:
-                        TreeView_MenuItem_AddDea.IsEnabled = false;
-                        TreeView_MenuItem_AddCom.IsEnabled = false;
-                        TreeView_MenuItem_AddDevice.IsEnabled = false;
-                        TreeView_MenuItem_DelDea.IsEnabled = false;
-                        TreeView_MenuItem_DelCom.IsEnabled = false;
-                        TreeView_MenuItem_DelDevice.IsEnabled = true;
+                    case 4:
+                        TreeView_MenuItem_Add.IsEnabled = false;
+                        TreeView_MenuItem_Del.IsEnabled = true;
                         break;
                     default:
-                        TreeView_MenuItem_AddDea.IsEnabled = false;
-                        TreeView_MenuItem_AddCom.IsEnabled = false;
-                        TreeView_MenuItem_AddDevice.IsEnabled = false;
-                        TreeView_MenuItem_DelDea.IsEnabled = false;
-                        TreeView_MenuItem_DelCom.IsEnabled = false;
-                        TreeView_MenuItem_DelDevice.IsEnabled = false;
+                        TreeView_MenuItem_Add.IsEnabled = false;
+                        TreeView_MenuItem_Del.IsEnabled = false;
                         break;
-                } 
-                //测试语句
-                display.Text = currentNode.NodeName + "|" + currentNode.nodetype;
+                         
+                }
+                
+                //display.Text = "_viewModel_depti:" + _viewModel.CurrentSelecteEntityTree.Depti +
+                //                 "_viewModel_index:" + _viewModel.CurrentSelecteEntityTree.Index +
+                //                 "当前节点子节点:" + _viewModel.CurrentSelecteEntityTree.ChildrenCount +
+                //                 "对象:" + _viewModel.CurrentSelecteEntityTree +
+                //                 "集合:" + _viewModel.CurrentSelecteEntityTree.Name;
+            }
+            else
+            {
+                return;
             }
         }
 
-        private DependencyObject VisualUpwardSearch<T>(DependencyObject source)
-        {
-            while (source != null && source.GetType() != typeof(T))
-            {
-                source = VisualTreeHelper.GetParent(source);
-            }
-            return source;
-        }
         
-        private List<Node> GetNodeList()
-        {
-            Node leafOneNode = new Node();
-            leafOneNode.NodeName = "叶子节点一";
-            leafOneNode.NodeContent = "我是叶子节点一";
-            leafOneNode.nodetype = NodeType.DeviceNode;
-            leafOneNode.Nodes = new List<Node>();
-
-            Node leafTwoNode = new Node();
-            leafTwoNode.NodeName = "叶子节点二";
-            leafTwoNode.NodeContent = "我是叶子节点二";
-            leafTwoNode.nodetype = NodeType.DeviceNode;
-            leafTwoNode.Nodes = new List<Node>();
-
-            Node leafThreeNode = new Node();
-            leafThreeNode.NodeName = "叶子节点三";
-            leafThreeNode.NodeContent = "我是叶子节点三";
-            leafThreeNode.nodetype = NodeType.DeviceNode;
-            leafThreeNode.Nodes = new List<Node>();
-
-            Node secondLevelNode = new Node();
-            secondLevelNode.NodeName = "二级节点";
-            secondLevelNode.NodeContent = "我是二级节点";
-            secondLevelNode.nodetype = NodeType.ComNode;
-            secondLevelNode.Nodes = new List<Node>() { leafOneNode, leafTwoNode, leafThreeNode };
-
-            Node firstLevelNode = new Node();
-            firstLevelNode.NodeName = "一级节点";
-            firstLevelNode.NodeContent = "我是一级节点";
-            firstLevelNode.nodetype = NodeType.DeaNode;
-            firstLevelNode.Nodes = new List<Node>() { secondLevelNode };
-
-            return new List<Node>()
-            {
-                new Node(){NodeName="工程",NodeContent="我是根节点",nodetype=NodeType.RootNode,Nodes=new List<Node>(){firstLevelNode}}
-            };
-        }
-
-        public List<Node> nodeList { get; set; }
+        
         private void TreeView_Project_Loaded(object sender, RoutedEventArgs e)
         {
-            nodeList = GetNodeList();
-            TreeView_Project.ItemsSource = nodeList;
-            ExpandTree();
+            this.TreeView_Project.DataContext = _viewModel;
         }
 
         //展开所有节点
@@ -503,133 +339,120 @@ namespace DEA3
                         ((TreeViewItem)dependencyObject).ExpandSubtree();
                     }
                 }
-
             }
         }
-         
-        ////
-        ////树型鼠标事件
-        ////
-        ////设置树单选,就是只能有一个树节点被选中
-        //private void SetNodeCheckStatus(TreeNode tn, TreeNode node)
-        //{
-        //    if (tn == null)
-        //        return;
-        //    if (tn != node)
-        //    {
-        //        tn.Checked = false;
-        //    }
-        //    // Check children nodes
-        //    foreach (TreeNode tnChild in tn.Nodes)
-        //    {
-        //        if (tnChild != node)
-        //        {
-        //            tnChild.Checked = false;
-        //        }
-        //        SetNodeCheckStatus(tnChild, node);
-        //    }
-        //}
-        ////在树节点被选中后触发
-        //private void treeView1_AfterCheacked(object sender, TreeViewEventArgs e)
-        //{
-        //    //过滤不是鼠标选中的其它事件，防止死循环
-        //    if (e.Action != TreeViewAction.Unknown)
-        //    {
-        //        //Event call by mouse or key-press
-        //        foreach (TreeNode tnChild in treeView_Project.Nodes)
-        //            SetNodeCheckStatus(tnChild, e.Node);
-        //        string sName = e.Node.Text;
-        //    }
-        //}
-        ////获得选择节点
-        //private void GetSelectNode(TreeNode tn)
-        //{
-        //    if (tn == null)
-        //        return;
-        //    if (tn.Checked == true)
-        //    {
-        //        m_NodeName = tn.Text;
-        //        return;
-        //    }
-        //    // Check children nodes
-        //    foreach (TreeNode tnChild in tn.Nodes)
-        //    {
-        //        GetSelectNode(tnChild);
-        //    }
-        //}
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    TreeNode node = null;
-        //    foreach (TreeNode tnChild in treeView1.Nodes)
-        //    {
-        //        GetSelectNode(tnChild);
-        //    }
-        //    string sName = m_NodeName;
-        //}
-        ////选择树的节点并点击右键，触发事件
-        //private void treeView1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        //{
-        //    //MessageBox.Show("点击了树！");
-        //    textBox1.Text = "1:" + "点击了树";
-        //    if (e.Button == MouseButtons.Right)//判断你点的是不是右键
-        //    {
-        //        textBox1.Text = "2:" + e.Button.ToString();
+        
+        private void Menu_Test_Click(object sender, RoutedEventArgs e)
+        { 
+            ExpandTree();
+           
+        }
 
-        //        Point ClickPoint = new Point(e.X, e.Y);
-        //        TreeNode CurrentNode = treeView1.GetNodeAt(ClickPoint);
+   
+        /// <summary>  
+        /// 新增节点统一入口
+        /// </summary>  
+        /// <param name="_nodeName"></param>   
+        public void AddTreeViewNode(string _nodeName)
+        {
+            try
+            {
+                BaseEntityTree baseEntityTree = new BaseEntityTree(new EntityTreeModel(_nodeName));
+                if (this.TreeView_Project.SelectedItem == null || (TreeView_Project.SelectedItem as BaseEntityTree) == null)
+                    return ;
 
-        //        textBox1.Text = "3:" + ClickPoint.ToString() + "||" + CurrentNode.ToString() + "||" + CurrentNode.Checked;
-        //        textBox2.Text = "";
+                string result = (TreeView_Project.SelectedItem as BaseEntityTree).AddChildrenEntityTree(baseEntityTree);
+                if (result != "")
+                {
+                    System.Windows.MessageBox.Show(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            } 
+        }
+        /// <summary>  
+        /// 删除节点统一入口
+        /// </summary>  
+        /// <param name="_nodeName"></param>   
+        public void DeleteTreeViewNode(BaseEntityTree currentNode)
+        {
+            // TODO:执行删除节点操作  
+            BaseEntityTree baseEntityTree = currentNode;
 
-        //        treeView1.SelectedNode = CurrentNode;//选中这个节点
+            if (baseEntityTree.Depti != 1)
+            {
+                string result = "";//baseEntityTree.ParentBaseEntityTree.RemoveChildrenEntityTree(baseEntityTree);  
+                if (result == "")
+                {
+                    int SelectedIndex = baseEntityTree.Index;// .ParentBaseEntityTree.ChildrenEntityTree.IndexOf(baseEntityTree);  
+                    baseEntityTree.ParentBaseEntityTree.RemoveChildrenEntityTree(baseEntityTree);
+                    this._viewModel.NodeCollection.Remove(baseEntityTree);
 
-        //        if (CurrentNode != null && CurrentNode.IsSelected == true)
-        //        {
-        //            textBox2.Text = "4:" + ClickPoint.ToString() + "||" + CurrentNode.ToString() + "||" + CurrentNode.IsSelected.ToString() + "||" + CurrentNode.Level;
-
-        //            switch (CurrentNode.Level)//根据不同节点显示不同的右键菜单，当然你可以让它显示一样的菜单
-        //            {
-        //                case 0:
-        //                    CurrentNode.ContextMenuStrip = contextMenuStrip1;
-        //                    break;
-        //                case 1:
-        //                    CurrentNode.ContextMenuStrip = contextMenuStrip1;
-        //                    break;
-        //                case 2:
-        //                    CurrentNode.ContextMenuStrip = contextMenuStrip1;
-        //                    break;
-        //                default:
-        //                    break;
-        //            }
-        //        }
-        //    }
-        //}
-        //private String m_NodeName = null;
-        ////右键设置节点可以重命名
-        //private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        //{
-        //    //窗体的LabelEdir为false，因此每次要BeginEdit时都要先自LabelEdit为true
-        //    treeView1.LabelEdit = true;
-        //    treeView1.SelectedNode.BeginEdit();
-        //}
-        ////右键添加节点
-        //private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        //{
-        //    //在Tree选择节点的同一级添加节点
-        //    treeView1.LabelEdit = true;
-        //    TreeNode CurrentNode = treeView1.SelectedNode.Nodes.Add("Node1");
-        //    //更新选择节点
-        //    treeView1.SelectedNode.Checked = false;
-        //    CurrentNode.Checked = true;
-        //    //使添加的树节点处于可编辑的状态
-        //    CurrentNode.BeginEdit();
-        //}
-        ////右键删除节点
-        //private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        //{
-        //    treeView1.SelectedNode.Remove();
-        //}
+                    if (SelectedIndex < 0)
+                    {
+                        return;
+                    }
+                    else if (SelectedIndex > 0)
+                    {
+                        SelectedIndex--;
+                    } 
+                }
+            }
+        }
 
 
+        /// <summary>  
+        /// 新增节点
+        /// </summary>  
+        /// <param name="sender"></param>  
+        /// <param name="e"></param>  
+        private void TreeView_MenuItem_Add_Click(object sender, RoutedEventArgs e)
+        {
+            int depti = _viewModel.CurrentSelecteEntityTree.Depti;
+
+            switch (depti)
+            {
+                case 1:
+                    AddTreeViewNode("新增DEA");
+                    break;
+                case 2:
+                    AddTreeViewNode("新增COM");
+                    break;
+                case 3:
+                    AddTreeViewNode("新增设备");
+                    break; 
+                default:
+                    break;
+            } 
+            ExpandTree();
+        }
+
+        /// <summary>  
+        /// 删除节点
+        /// </summary>  
+        /// <param name="sender"></param>  
+        /// <param name="e"></param>  
+        private void TreeView_MenuItem_Del_Click(object sender, RoutedEventArgs e)
+        {
+            String _nodeName = _viewModel.CurrentSelecteEntityTree.Name;
+
+            string message = "确定删除["+ _nodeName +"]?";
+            string caption = "删除!";
+            MessageBoxButton buttons = MessageBoxButton.OKCancel;
+            MessageBoxImage icon = MessageBoxImage.Question;
+
+            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.OK)
+            {
+                BaseEntityTree baseEntityTree = TreeView_Project.SelectedItem as BaseEntityTree;
+                DeleteTreeViewNode(baseEntityTree);
+            }
+            else
+            {
+                return;
+            }
+        }
+ 
     }
 }

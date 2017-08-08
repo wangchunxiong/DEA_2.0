@@ -4,7 +4,7 @@
 library
 C#
 .cs
-E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\Xceed.Wpf.AvalonDock\obj\Debug\
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\Xceed.Wpf.AvalonDock\obj\Debug\
 Xceed.Wpf.AvalonDock
 none
 false
@@ -16,5 +16,5 @@ DEBUG
 12-1381780322
 Themes\generic.xaml;
 
-False
+True
 
