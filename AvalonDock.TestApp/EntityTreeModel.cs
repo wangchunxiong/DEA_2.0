@@ -19,13 +19,24 @@ namespace DEA3
         {
             this.Name = name;
         }
-
+        /// <summary>
+        /// name属性
+        /// </summary>
         private string _name;
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
-         
+        /// <summary>
+        /// project属性
+        /// </summary>
+        private string _projectNote;
+        public string ProjectNote
+        {
+            get { return _projectNote; }
+            set { _projectNote = value; }
+        }
+
     }
 }

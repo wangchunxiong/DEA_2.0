@@ -33,10 +33,46 @@ namespace DEA3
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    { 
+    {
+        //声明数据源对象
+        ViewModel _viewModel = new ViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            //////////////////////树型数据初始化
+            _viewModel.NodeCollection = new ObservableCollection<BaseEntityTree> {
+            new BaseEntityTree(){ Name = "工程",ProjectNote = "工程"} };
+             
+            // 组件临时数据  
+            foreach (BaseEntityTree entityTree in _viewModel.NodeCollection)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    BaseEntityTree model = new BaseEntityTree()
+                    {
+                        Name = "DEA" + i
+                    };
+                    entityTree.AddChildrenEntityTree(model);
+
+                }
+                foreach (BaseEntityTree seEntityTree in entityTree.ChildrenEntityTree)
+                {
+                    for (int j = 0; j < 2; j++)
+                    {
+                        BaseEntityTree model = new BaseEntityTree()
+                        {
+                            Name = "COM" + j
+                        };
+                        seEntityTree.AddChildrenEntityTree(model);
+                    }
+                }
+            }
+
+            this.TreeView_Project.DataContext = _viewModel;
+
+             
         }
 
 
@@ -177,8 +213,7 @@ namespace DEA3
             get
             {
                 byte[] bs = new byte[256];
-                GetKeyboardState(bs);
-                //MessageBox.Show(bs[0x14].ToString());
+                GetKeyboardState(bs); 
                 return (bs[0x14] == 1);
             }
         }
@@ -269,11 +304,11 @@ namespace DEA3
         ////////////////////////////////////////////////////////////////////
         ///////////////////////树型生成即操作///////////////////////////
         ////////////////////////////////////////////////////////////////////
-        //声明数据源对象
-        ViewModel _viewModel = new ViewModel();
-
-
-
+     
+        /// <summary>  
+        /// 鼠标右键功能菜单
+        /// </summary>  
+        /// <param name="_nodeName"></param>   
         private void TreeView_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {  //设置当前选择节点
             _viewModel.CurrentSelecteEntityTree = TreeView_Project.SelectedItem as BaseEntityTree; 
@@ -286,22 +321,27 @@ namespace DEA3
                 {
                     case 1:
                         TreeView_MenuItem_Add.IsEnabled = true;
+                        TreeView_MenuItem_chg.IsEnabled = false;
                         TreeView_MenuItem_Del.IsEnabled = true;
                         break;
                     case 2:
                         TreeView_MenuItem_Add.IsEnabled = true;
+                        TreeView_MenuItem_chg.IsEnabled = false;
                         TreeView_MenuItem_Del.IsEnabled = true;
                         break;
                     case 3:
                         TreeView_MenuItem_Add.IsEnabled = true;
+                        TreeView_MenuItem_chg.IsEnabled = true;
                         TreeView_MenuItem_Del.IsEnabled = true;
                         break;
                     case 4:
                         TreeView_MenuItem_Add.IsEnabled = false;
+                        TreeView_MenuItem_chg.IsEnabled = true;
                         TreeView_MenuItem_Del.IsEnabled = true;
                         break;
                     default:
                         TreeView_MenuItem_Add.IsEnabled = false;
+                        TreeView_MenuItem_chg.IsEnabled = false;
                         TreeView_MenuItem_Del.IsEnabled = false;
                         break;
                          
@@ -319,11 +359,13 @@ namespace DEA3
             }
         }
 
-        
-        
+        /// <summary>  
+        /// 树型加载方法
+        /// </summary>  
+        /// <param name="_nodeName"></param>   
         private void TreeView_Project_Loaded(object sender, RoutedEventArgs e)
         {
-            this.TreeView_Project.DataContext = _viewModel;
+            //this.TreeView_Project.DataContext = _viewModel;
         }
 
         //展开所有节点
@@ -341,14 +383,23 @@ namespace DEA3
                 }
             }
         }
-        
+        /// <summary>
+        /// 菜单测试功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Menu_Test_Click(object sender, RoutedEventArgs e)
         { 
             ExpandTree();
-           
-        }
+            //display.Text = "";
+            //_viewModel.NodeCollection[0].Name = "根目录";
+            //_viewModel.NodeCollection[0].ProjectNote = "根目录信息备注";
+            //display.Text = _viewModel.NodeCollection[0].ProjectNote;
 
-   
+            //display1.Text = ((BaseEntityTree)_viewModel.NodeCollection[0]).ChildrenEntityTree.Count.ToString();
+            
+        }
+        
         /// <summary>  
         /// 新增节点统一入口
         /// </summary>  
@@ -357,7 +408,7 @@ namespace DEA3
         {
             try
             {
-                BaseEntityTree baseEntityTree = new BaseEntityTree(new EntityTreeModel(_nodeName));
+                BaseEntityTree baseEntityTree = new BaseEntityTree() { Name = _nodeName };
                 if (this.TreeView_Project.SelectedItem == null || (TreeView_Project.SelectedItem as BaseEntityTree) == null)
                     return ;
 
@@ -401,8 +452,7 @@ namespace DEA3
                 }
             }
         }
-
-
+        
         /// <summary>  
         /// 新增节点
         /// </summary>  
@@ -410,18 +460,19 @@ namespace DEA3
         /// <param name="e"></param>  
         private void TreeView_MenuItem_Add_Click(object sender, RoutedEventArgs e)
         {
-            int depti = _viewModel.CurrentSelecteEntityTree.Depti;
+            int _depti = _viewModel.CurrentSelecteEntityTree.Depti;
+            int _nodeNum = _viewModel.CurrentSelecteEntityTree.ChildrenCount;
 
-            switch (depti)
+            switch (_depti)
             {
                 case 1:
-                    AddTreeViewNode("新增DEA");
+                    AddTreeViewNode((_nodeNum + 1) + "号DEA" );
                     break;
                 case 2:
-                    AddTreeViewNode("新增COM");
+                    AddTreeViewNode("COM" + (_nodeNum + 1));
                     break;
                 case 3:
-                    AddTreeViewNode("新增设备");
+                    AddTreeViewNode((_nodeNum + 1) + "号设备");
                     break; 
                 default:
                     break;
@@ -437,8 +488,9 @@ namespace DEA3
         private void TreeView_MenuItem_Del_Click(object sender, RoutedEventArgs e)
         {
             String _nodeName = _viewModel.CurrentSelecteEntityTree.Name;
-
-            string message = "确定删除["+ _nodeName +"]?";
+            String _prentNodeName = _viewModel.CurrentSelecteEntityTree.ParentBaseEntityTree.Name;
+            
+            string message = "确定删除[ "+ _prentNodeName + " ]下[ "+ _nodeName +" ] ?";
             string caption = "删除!";
             MessageBoxButton buttons = MessageBoxButton.OKCancel;
             MessageBoxImage icon = MessageBoxImage.Question;
@@ -453,6 +505,12 @@ namespace DEA3
                 return;
             }
         }
- 
+         
+
+        private void TreeView_MenuItem_chg_Click(object sender, RoutedEventArgs e)
+        {
+            //String _nodeName = _viewModel.CurrentSelecteEntityTree.Name;
+            //String _prentNodeName = _viewModel.CurrentSelecteEntityTree.ParentBaseEntityTree.Name;
+        }
     }
 }

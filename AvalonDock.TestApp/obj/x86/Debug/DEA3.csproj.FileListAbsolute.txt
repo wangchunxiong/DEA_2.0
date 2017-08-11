@@ -101,5 +101,3 @@ e:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDoc
 e:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\DEA3_MarkupCompile.lref
 e:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\MainWindow.baml
 e:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\DEA3.g.resources
-e:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\AvalonDock.TestApp.UserControl1.resources
-e:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\DEA3.csproj.GenerateResource.Cache

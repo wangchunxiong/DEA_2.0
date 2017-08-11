@@ -5,6 +5,7 @@
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:local="clr-namespace:DEA3"
         xmlns:winformsIntegration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+        
         Name="MainAppWindow"
         WindowState="Maximized" 
         Loaded="MainAppWindow_Loaded"
@@ -89,16 +90,28 @@
                             <avalonDock:LayoutAnchorablePane  x:Name="layOutPaneTree" DockWidth="150">
                                 <avalonDock:LayoutAnchorable Title="工程" >
 
-                                    <TreeView Name="TreeView_Project" ItemsSource="{Binding NodeCollection,Mode=TwoWay}" Height="auto" BorderBrush="Khaki" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  MinWidth="150" Width="auto" Loaded="TreeView_Project_Loaded">
-                                        <TreeView.ItemTemplate>
-                                            <HierarchicalDataTemplate  ItemsSource="{Binding ChildrenEntityTree}" >
-                                                <TextBlock Text="{Binding CurrentBaseEntity.Name}" ToolTip="{Binding CurrentBaseEntity.Name}"/>
+                                    <TreeView Name="TreeView_Project" 
+                                              ItemsSource="{Binding NodeCollection,Mode=TwoWay}" 
+                                              Height="auto" BorderBrush="Khaki" VerticalAlignment="Stretch" 
+                                              HorizontalAlignment="Stretch"  MinWidth="150" Width="auto" 
+                                              Loaded="TreeView_Project_Loaded" >
+                                   
+                                        <TreeView.ItemTemplate >
+                                            <HierarchicalDataTemplate x:Name="treeViewItemTempNode" ItemsSource="{Binding ChildrenEntityTree}" >
+                                                <StackPanel Name="stackPanel2" Orientation="Horizontal">
+                                                    <Image Source="{Binding ImageUrl}" Margin="2"/>
+                                                    <TextBlock Name="treeViewNodeName" 
+                                                           Text="{Binding  Name ,Mode=TwoWay}"  
+                                                           ToolTip="{Binding  ProjectNote ,Mode=TwoWay}"  />
+                                                </StackPanel>
                                             </HierarchicalDataTemplate>
                                         </TreeView.ItemTemplate>
-
+                                       
                                         <TreeView.ContextMenu>
                                             <ContextMenu x:Name="TreeView_Project_EditNode">
                                                 <MenuItem Header="新增" Name="TreeView_MenuItem_Add" IsEnabled="False" Click="TreeView_MenuItem_Add_Click"  >
+                                                </MenuItem>
+                                                <MenuItem Header="修改" Name="TreeView_MenuItem_chg" IsEnabled="False" Click="TreeView_MenuItem_chg_Click"    >
                                                 </MenuItem>
                                                 <MenuItem Header="删除" Name="TreeView_MenuItem_Del" IsEnabled="False" Click="TreeView_MenuItem_Del_Click" >
                                                 </MenuItem>
@@ -121,7 +134,7 @@
                                     <avalonDock:LayoutDocument Title="Document1" IconSource="image/alarm-clock-blue.png">
                                         <StackPanel>
                                             <TextBox Name="display" Width="800" ></TextBox>
-                                            <TextBox Name="findText" Width="800" ></TextBox>
+                                            <TextBox Name="display1" Width="800" ></TextBox>
                                         </StackPanel>
                                     </avalonDock:LayoutDocument>
                                 </avalonDock:LayoutDocumentPane>

@@ -25,8 +25,7 @@ namespace DEA3
                 OnChangedProperty("NodeCollection");
             }
         }
-
-
+         
         private BaseEntityTree _currentSelectedEntityTree;
         /// <summary>  
         /// 当前选择EntityTree  
@@ -40,38 +39,38 @@ namespace DEA3
                 OnChangedProperty("CurrentSelecteEntityTree");
             }
         }
-        public ViewModel()
-        {
-            EntityTreeModel parentTreeModel = new EntityTreeModel()
-            {
-                Name = "工程"
-            };
-            NodeCollection.Add(new BaseEntityTree(parentTreeModel));
-            // 组件临时数据  
-            foreach (BaseEntityTree entityTree in NodeCollection)
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    EntityTreeModel model = new EntityTreeModel()
-                    {
-                        Name = "DEA" + i
-                    };
-                    entityTree.AddChildrenEntityTree(new BaseEntityTree(model));
+        //public ViewModel()
+        //{
+        //    EntityTreeModel parentTreeModel = new EntityTreeModel()
+        //    {
+        //        Name = "工程"
+        //    };
+        //    NodeCollection.Add(new BaseEntityTree(parentTreeModel));
+        //    // 组件临时数据  
+        //    foreach (BaseEntityTree entityTree in NodeCollection)
+        //    {
+        //        for (int i = 0; i < 2; i++)
+        //        {
+        //            EntityTreeModel model = new EntityTreeModel()
+        //            {
+        //                Name = "DEA" + i
+        //            };
+        //            entityTree.AddChildrenEntityTree(new BaseEntityTree(model));
 
-                }
-                foreach (BaseEntityTree seEntityTree in entityTree.ChildrenEntityTree)
-                {
-                    for (int j = 0; j < 2; j++)
-                    {
-                        EntityTreeModel model = new EntityTreeModel()
-                        {
-                            Name = "COM" + j
-                        };
-                        seEntityTree.AddChildrenEntityTree(new BaseEntityTree(model));
-                    }
-                }
-            }
-        }
+        //        }
+        //        foreach (BaseEntityTree seEntityTree in entityTree.ChildrenEntityTree)
+        //        {
+        //            for (int j = 0; j < 2; j++)
+        //            {
+        //                EntityTreeModel model = new EntityTreeModel()
+        //                {
+        //                    Name = "COM" + j
+        //                };
+        //                seEntityTree.AddChildrenEntityTree(new BaseEntityTree(model));
+        //            }
+        //        }
+        //    }
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnChangedProperty(string value)

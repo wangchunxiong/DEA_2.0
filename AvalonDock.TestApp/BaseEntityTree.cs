@@ -30,22 +30,40 @@ namespace DEA3
             }
         }
 
-
+        private string _name = "";
         ///// <summary>  
         ///// 当前节点  名称  
         ///// </summary>  
         public string Name
         {
-            get
+            get  {  return _name;    }
+            set
             {
-                if (ParentBaseEntityTree != null)
+                if (!_name.Equals(value))
                 {
-                    return ((EntityTreeModel)(this.CurrentBaseEntity)).Name;
+                    _name = value;
+                    OnChangedProperty("Name");
                 }
-                else
-                { return "工程"; }
             }
-        } 
+        }
+
+        private string _projectNote = "";
+        ///// <summary>  
+        ///// ProjiectNote  
+        ///// </summary>  
+        public string ProjectNote
+        {
+            get {   return _projectNote;  }
+            set
+            {
+                if (!_projectNote.Equals(value))
+                {
+                    _projectNote = value;
+                    OnChangedProperty("ProjectNote");
+                }
+            }
+        }
+         
 
         private BaseEntity _currentBaseEntity = null;
         /// <summary>  
