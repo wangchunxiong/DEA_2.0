@@ -4,13 +4,111 @@
         xmlns:avalon="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
         xmlns:local="clr-namespace:DEA3"
-        xmlns:winformsIntegration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
-        
+        xmlns:winformsIntegration="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration" 
         Name="MainAppWindow"
         WindowState="Maximized" 
-        Loaded="MainAppWindow_Loaded"
+        Loaded="MainAppWindow_Loaded" 
         Title="DataExchangeAdapter"  WindowStartupLocation="CenterScreen" AllowDrop="True"  FontSize="14" TextOptions.TextFormattingMode="Display" 
-        Unloaded="MainAppWindow_Unloaded" >
+        Unloaded="MainAppWindow_Unloaded" > 
+    <Window.Resources >
+        <HierarchicalDataTemplate DataType="{x:Type local:ProjectEntity}" ItemsSource="{Binding Path=Children}">
+            <TextBlock Text="{Binding Path=NAME}">
+                <TextBlock.ContextMenu>
+                    <ContextMenu DataContext="{StaticResource vm}">
+                        <MenuItem Header="新增" IsEnabled="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.AddIsEnabled}"  
+                              Command="{Binding AddNewItemCommand}"  
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                        <MenuItem Header="修改" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.ChgIsEnabled}"
+                              Command="{Binding DelItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                        <MenuItem Header="删除" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.DelIsEnabled}"
+                              Command="{Binding DelItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type local:DeaEntity}" ItemsSource="{Binding Path=Children}">
+            <TextBlock Text="{Binding Path=NAME}">
+                <TextBlock.ContextMenu>
+                    <ContextMenu  DataContext="{StaticResource vm}">
+                        <MenuItem Header="新增" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.AddIsEnabled}"
+                              Command="{Binding AddNewItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                        <MenuItem Header="修改" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.ChgIsEnabled}"
+                              Command="{Binding DelItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                        <MenuItem Header="删除" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.DelIsEnabled}"
+                              Command="{Binding DelItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type local:ComEntity}"
+                                  ItemsSource="{Binding Path=Children}">
+            <TextBlock Text="{Binding Path=NAME}">
+                <TextBlock.ContextMenu>
+                    <ContextMenu  DataContext="{StaticResource vm}">
+                        <MenuItem Header="新增" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.AddIsEnabled}"
+                              Command="{Binding AddNewItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                        <MenuItem Header="修改" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.ChgIsEnabled}"
+                              Command="{Binding DelItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                        <MenuItem Header="删除" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.DelIsEnabled}"
+                              Command="{Binding DelItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+        <HierarchicalDataTemplate DataType="{x:Type local:DeviceEntity}" >
+            <TextBlock Text="{Binding Path=NAME}">
+                <TextBlock.ContextMenu>
+                    <ContextMenu  DataContext="{StaticResource vm}">
+                        <MenuItem Header="新增" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},  Path=PlacementTarget.DataContext.AddIsEnabled}"
+                              Command="{Binding AddNewItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                        <MenuItem Header="修改" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},  Path=PlacementTarget.DataContext.ChgIsEnabled}"
+                              Command="{Binding DelItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                        <MenuItem Header="删除" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},  Path=PlacementTarget.DataContext.DelIsEnabled}"
+                              Command="{Binding DelItemCommand}"
+                              CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
+                                                         Path=PlacementTarget.DataContext}">
+                        </MenuItem>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+        <Style TargetType="TreeViewItem">
+            <Setter Property="IsExpanded" Value="True"></Setter>
+        </Style>
+    </Window.Resources>
+ 
     <Grid>
         <DockPanel Name="Dp_Main">
             <Menu DockPanel.Dock="Top" Height="24" Background="#FFA8CDDE" FontSize="13">
@@ -91,40 +189,12 @@
                                 <avalonDock:LayoutAnchorable Title="工程" >
 
                                     <TreeView Name="TreeView_Project" 
-                                              ItemsSource="{Binding NodeCollection,Mode=TwoWay}" 
+                                              ItemsSource="{Binding Path=NodeCollection}"
                                               Height="auto" BorderBrush="Khaki" VerticalAlignment="Stretch" 
                                               HorizontalAlignment="Stretch"  MinWidth="150" Width="auto" 
-                                              Loaded="TreeView_Project_Loaded" >
-                                   
-                                        <TreeView.ItemTemplate >
-                                            <HierarchicalDataTemplate x:Name="treeViewItemTempNode" ItemsSource="{Binding ChildrenEntityTree}" >
-                                                <StackPanel Name="stackPanel2" Orientation="Horizontal">
-                                                    <Image Source="{Binding ImageUrl}" Margin="2"/>
-                                                    <TextBlock Name="treeViewNodeName" 
-                                                           Text="{Binding  Name ,Mode=TwoWay}"  
-                                                           ToolTip="{Binding  ProjectNote ,Mode=TwoWay}"  />
-                                                </StackPanel>
-                                            </HierarchicalDataTemplate>
-                                        </TreeView.ItemTemplate>
-                                       
-                                        <TreeView.ContextMenu>
-                                            <ContextMenu x:Name="TreeView_Project_EditNode">
-                                                <MenuItem Header="新增" Name="TreeView_MenuItem_Add" IsEnabled="False" Click="TreeView_MenuItem_Add_Click"  >
-                                                </MenuItem>
-                                                <MenuItem Header="修改" Name="TreeView_MenuItem_chg" IsEnabled="False" Click="TreeView_MenuItem_chg_Click"    >
-                                                </MenuItem>
-                                                <MenuItem Header="删除" Name="TreeView_MenuItem_Del" IsEnabled="False" Click="TreeView_MenuItem_Del_Click" >
-                                                </MenuItem>
-                                            </ContextMenu>
-                                        </TreeView.ContextMenu>
-                                        
-                                        <TreeView.ItemContainerStyle>
-                                            <Style TargetType="{x:Type TreeViewItem}">
-                                                <EventSetter Event="TreeViewItem.PreviewMouseRightButtonDown" Handler="TreeView_PreviewMouseRightButtonDown"/>
-                                            </Style>
-                                        </TreeView.ItemContainerStyle>
-                                        
+                                              Loaded="TreeView_Project_Loaded" > 
                                     </TreeView>
+                                    
                                 </avalonDock:LayoutAnchorable>
                             </avalonDock:LayoutAnchorablePane>
 

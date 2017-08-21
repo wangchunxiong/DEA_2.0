@@ -28,42 +28,7 @@ namespace DEA3
                     OnChangedProperty("Depti");
                 }
             }
-        }
-
-        private string _name = "";
-        ///// <summary>  
-        ///// 当前节点  名称  
-        ///// </summary>  
-        public string Name
-        {
-            get  {  return _name;    }
-            set
-            {
-                if (!_name.Equals(value))
-                {
-                    _name = value;
-                    OnChangedProperty("Name");
-                }
-            }
-        }
-
-        private string _projectNote = "";
-        ///// <summary>  
-        ///// ProjiectNote  
-        ///// </summary>  
-        public string ProjectNote
-        {
-            get {   return _projectNote;  }
-            set
-            {
-                if (!_projectNote.Equals(value))
-                {
-                    _projectNote = value;
-                    OnChangedProperty("ProjectNote");
-                }
-            }
-        }
-         
+        } 
 
         private BaseEntity _currentBaseEntity = null;
         /// <summary>  
@@ -180,7 +145,7 @@ namespace DEA3
         /// <summary>  
         /// 当前节点所在集合的索引  
         /// </summary>  
-        public int Index
+        public int? Index
         {
             
             get
@@ -190,7 +155,7 @@ namespace DEA3
                     return this.ParentBaseEntityTree.ChildrenEntityTree.IndexOf(this);
                 }
                 else
-                {  return 0;  }
+                {  return null;  }
             }
         }
 

@@ -26,6 +26,7 @@ using System.Runtime.InteropServices;
 using Xceed.Wpf.AvalonDock.Themes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using GalaSoft.MvvmLight.Command;
 
 namespace DEA3
 {
@@ -36,45 +37,67 @@ namespace DEA3
     {
         //声明数据源对象
         ViewModel _viewModel = new ViewModel();
+        string message = "";
+
+        public RelayCommand<BaseEntity> AddNewItemCommand { get; set; }
 
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); 
 
-            //////////////////////树型数据初始化
-            _viewModel.NodeCollection = new ObservableCollection<BaseEntityTree> {
-            new BaseEntityTree(){ Name = "工程",ProjectNote = "工程"} };
-             
-            // 组件临时数据  
-            foreach (BaseEntityTree entityTree in _viewModel.NodeCollection)
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    BaseEntityTree model = new BaseEntityTree()
-                    {
-                        Name = "DEA" + i
-                    };
-                    entityTree.AddChildrenEntityTree(model);
-
-                }
-                foreach (BaseEntityTree seEntityTree in entityTree.ChildrenEntityTree)
-                {
-                    for (int j = 0; j < 2; j++)
-                    {
-                        BaseEntityTree model = new BaseEntityTree()
-                        {
-                            Name = "COM" + j
-                        };
-                        seEntityTree.AddChildrenEntityTree(model);
-                    }
-                }
-            }
+            //_viewModel.NodeCollection = new ObservableCollection<ProjectEntity> {
+            //new ProjectEntity()
+            //{
+            //    NAME = "ROOT工程",
+            //    NOTE = "这是一个初始化备注",
+            //    PROJEC_TNOTE = "四川XXx鞋厂工程",
+            //    DEPTI = 0,
+            //    TYPE = BaseEntity.NodeType.RootNode,
+            //    AddIsEnabled = true,
+            //    DelIsEnabled = false
+            //} };
 
             this.TreeView_Project.DataContext = _viewModel;
-
              
         }
 
+        //public void ExecuteAddNewItem(BaseEntity node)
+        //{
+        //    if (node == null)
+        //        return;
+
+        //    int _depti = _viewModel.CurrentBaseEntity.DEPTI;
+        //    int _nodeNum;
+        //    display.Text = "_depti:" + _depti;
+        //    MessageBox.Show("新增节点,addNewItem方法!");
+        //    switch (_depti)
+        //    {
+        //        case 0:
+        //            _nodeNum = ((ProjectEntity)_viewModel.CurrentBaseEntity).ChildrenCount;
+        //            //AddTreeViewNode();
+        //            node.AddNewItem((_nodeNum + 1) + "号DEA", _currentNode, _depti);
+        //            break;
+        //        case 1:
+        //            MessageBox.Show("节点深度为:" + _depti);
+        //            _nodeNum = ((DeaEntity)_viewModel.CurrentBaseEntity).ChildrenCount;
+        //            //AddTreeViewNode("COM1" + (_nodeNum + 1), _currentNode, _depti);
+        //            node.AddNewItem("COM1" + (_nodeNum + 1), _currentNode, _depti);
+        //            break;
+        //        case 2:
+        //            _nodeNum = ((ComEntity)_viewModel.CurrentBaseEntity).ChildrenCount;
+        //            //AddTreeViewNode((_nodeNum + 1) + "号设备", _currentNode, _depti);
+        //            node.AddNewItem((_nodeNum + 1) + "号设备", _currentNode, _depti);
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    ExpandTree();
+             
+        //    //MessageBox.Show("addNewItem方法!节点情况:"+node.NAME);
+           
+          
+            
+        //}
 
         private void Menu_Sys_exit_Click(object sender, RoutedEventArgs e)
         {
@@ -301,62 +324,22 @@ namespace DEA3
                 hKeyboardHook = SetWindowsHookEx(WH_KEYBOARD_LL, KeyboardHookProcedure, GetModuleHandle(curModule.ModuleName), 0);
             }
         }
+
+
         ////////////////////////////////////////////////////////////////////
         ///////////////////////树型生成即操作///////////////////////////
         ////////////////////////////////////////////////////////////////////
-     
+        BaseEntity _currentNode;
         /// <summary>  
         /// 鼠标右键功能菜单
         /// </summary>  
         /// <param name="_nodeName"></param>   
         private void TreeView_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {  //设置当前选择节点
-            _viewModel.CurrentSelecteEntityTree = TreeView_Project.SelectedItem as BaseEntityTree; 
+
+            _viewModel.CurrentBaseEntity =  TreeView_Project.SelectedItem as BaseEntity;
+            _currentNode = TreeView_Project.SelectedItem as BaseEntity;
              
-            if (_viewModel.CurrentSelecteEntityTree != null )
-            {
-                TreeView_Project.Focus(); 
-                e.Handled = true;
-                switch (_viewModel.CurrentSelecteEntityTree.Depti)
-                {
-                    case 1:
-                        TreeView_MenuItem_Add.IsEnabled = true;
-                        TreeView_MenuItem_chg.IsEnabled = false;
-                        TreeView_MenuItem_Del.IsEnabled = true;
-                        break;
-                    case 2:
-                        TreeView_MenuItem_Add.IsEnabled = true;
-                        TreeView_MenuItem_chg.IsEnabled = false;
-                        TreeView_MenuItem_Del.IsEnabled = true;
-                        break;
-                    case 3:
-                        TreeView_MenuItem_Add.IsEnabled = true;
-                        TreeView_MenuItem_chg.IsEnabled = true;
-                        TreeView_MenuItem_Del.IsEnabled = true;
-                        break;
-                    case 4:
-                        TreeView_MenuItem_Add.IsEnabled = false;
-                        TreeView_MenuItem_chg.IsEnabled = true;
-                        TreeView_MenuItem_Del.IsEnabled = true;
-                        break;
-                    default:
-                        TreeView_MenuItem_Add.IsEnabled = false;
-                        TreeView_MenuItem_chg.IsEnabled = false;
-                        TreeView_MenuItem_Del.IsEnabled = false;
-                        break;
-                         
-                }
-                
-                //display.Text = "_viewModel_depti:" + _viewModel.CurrentSelecteEntityTree.Depti +
-                //                 "_viewModel_index:" + _viewModel.CurrentSelecteEntityTree.Index +
-                //                 "当前节点子节点:" + _viewModel.CurrentSelecteEntityTree.ChildrenCount +
-                //                 "对象:" + _viewModel.CurrentSelecteEntityTree +
-                //                 "集合:" + _viewModel.CurrentSelecteEntityTree.Name;
-            }
-            else
-            {
-                return;
-            }
         }
 
         /// <summary>  
@@ -394,123 +377,11 @@ namespace DEA3
             //display.Text = "";
             //_viewModel.NodeCollection[0].Name = "根目录";
             //_viewModel.NodeCollection[0].ProjectNote = "根目录信息备注";
-            //display.Text = _viewModel.NodeCollection[0].ProjectNote;
+            //display.Text = _viewModel.NodeCollection[0].Children[0].NAME;
 
-            //display1.Text = ((BaseEntityTree)_viewModel.NodeCollection[0]).ChildrenEntityTree.Count.ToString();
-            
-        }
-        
-        /// <summary>  
-        /// 新增节点统一入口
-        /// </summary>  
-        /// <param name="_nodeName"></param>   
-        public void AddTreeViewNode(string _nodeName)
-        {
-            try
-            {
-                BaseEntityTree baseEntityTree = new BaseEntityTree() { Name = _nodeName };
-                if (this.TreeView_Project.SelectedItem == null || (TreeView_Project.SelectedItem as BaseEntityTree) == null)
-                    return ;
+           
 
-                string result = (TreeView_Project.SelectedItem as BaseEntityTree).AddChildrenEntityTree(baseEntityTree);
-                if (result != "")
-                {
-                    System.Windows.MessageBox.Show(result);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.Message);
-            } 
-        }
-        /// <summary>  
-        /// 删除节点统一入口
-        /// </summary>  
-        /// <param name="_nodeName"></param>   
-        public void DeleteTreeViewNode(BaseEntityTree currentNode)
-        {
-            // TODO:执行删除节点操作  
-            BaseEntityTree baseEntityTree = currentNode;
-
-            if (baseEntityTree.Depti != 1)
-            {
-                string result = "";//baseEntityTree.ParentBaseEntityTree.RemoveChildrenEntityTree(baseEntityTree);  
-                if (result == "")
-                {
-                    int SelectedIndex = baseEntityTree.Index;// .ParentBaseEntityTree.ChildrenEntityTree.IndexOf(baseEntityTree);  
-                    baseEntityTree.ParentBaseEntityTree.RemoveChildrenEntityTree(baseEntityTree);
-                    this._viewModel.NodeCollection.Remove(baseEntityTree);
-
-                    if (SelectedIndex < 0)
-                    {
-                        return;
-                    }
-                    else if (SelectedIndex > 0)
-                    {
-                        SelectedIndex--;
-                    } 
-                }
-            }
-        }
-        
-        /// <summary>  
-        /// 新增节点
-        /// </summary>  
-        /// <param name="sender"></param>  
-        /// <param name="e"></param>  
-        private void TreeView_MenuItem_Add_Click(object sender, RoutedEventArgs e)
-        {
-            int _depti = _viewModel.CurrentSelecteEntityTree.Depti;
-            int _nodeNum = _viewModel.CurrentSelecteEntityTree.ChildrenCount;
-
-            switch (_depti)
-            {
-                case 1:
-                    AddTreeViewNode((_nodeNum + 1) + "号DEA" );
-                    break;
-                case 2:
-                    AddTreeViewNode("COM" + (_nodeNum + 1));
-                    break;
-                case 3:
-                    AddTreeViewNode((_nodeNum + 1) + "号设备");
-                    break; 
-                default:
-                    break;
-            } 
-            ExpandTree();
-        }
-
-        /// <summary>  
-        /// 删除节点
-        /// </summary>  
-        /// <param name="sender"></param>  
-        /// <param name="e"></param>  
-        private void TreeView_MenuItem_Del_Click(object sender, RoutedEventArgs e)
-        {
-            String _nodeName = _viewModel.CurrentSelecteEntityTree.Name;
-            String _prentNodeName = _viewModel.CurrentSelecteEntityTree.ParentBaseEntityTree.Name;
-            
-            string message = "确定删除[ "+ _prentNodeName + " ]下[ "+ _nodeName +" ] ?";
-            string caption = "删除!";
-            MessageBoxButton buttons = MessageBoxButton.OKCancel;
-            MessageBoxImage icon = MessageBoxImage.Question;
-
-            if (MessageBox.Show(message, caption, buttons, icon) == MessageBoxResult.OK)
-            {
-                BaseEntityTree baseEntityTree = TreeView_Project.SelectedItem as BaseEntityTree;
-                DeleteTreeViewNode(baseEntityTree);
-            }
-            else
-            {
-                return;
-            }
-        }
-         
-
-        private void TreeView_MenuItem_chg_Click(object sender, RoutedEventArgs e)
-        {
-            //String _nodeName = _viewModel.CurrentSelecteEntityTree.Name;
-            //String _prentNodeName = _viewModel.CurrentSelecteEntityTree.ParentBaseEntityTree.Name;
-        }
+        } 
+ 
     }
 }

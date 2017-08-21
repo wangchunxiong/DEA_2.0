@@ -6,13 +6,13 @@ using System.Text;
 
 namespace DEA3
 {
-    public class Node 
+    public class NodeBase 
     {
-        public Node()
+        public NodeBase()
         {
             this.NodeId = Guid.NewGuid().ToString();
             this.IsDeleted = false;
-            this.Nodes = new ObservableCollection<Node>();
+            this.Nodes = new ObservableCollection<NodeBase>();
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace DEA3
         /// <summary>
         /// 父节点
         /// </summary>
-        public Node ParentNode { get; set; }
+        public NodeBase ParentNode { get; set; }
 
         /// <summary>
         /// 节点类型
@@ -49,7 +49,7 @@ namespace DEA3
         /// <summary>
         /// 子节点集合
         /// </summary>
-        public ObservableCollection<Node> Nodes { get; set; }
+        public ObservableCollection<NodeBase> Nodes { get; set; }
          
     }
     public enum NodeType
