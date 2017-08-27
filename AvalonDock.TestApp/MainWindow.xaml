@@ -106,12 +106,14 @@
         </HierarchicalDataTemplate>
         <Style TargetType="TreeViewItem">
             <Setter Property="IsExpanded" Value="True"></Setter>
-        </Style>
+        </Style> 
     </Window.Resources>
+    
+    
  
     <Grid>
         <DockPanel Name="Dp_Main">
-            <Menu DockPanel.Dock="Top" Height="24" Background="#FFA8CDDE" FontSize="13">
+            <Menu DockPanel.Dock="Top" Height="24" Background="#FFEE611F" FontSize="13">
                 <MenuItem Name="Menu_file" Header="工程(P)">
                     <MenuItem Name="Menu_file_create" Header="新建"></MenuItem>
                     <MenuItem Name="Menu_file_open" Header="打开"></MenuItem>
@@ -173,10 +175,7 @@
                     </StatusBarItem>
                     <StatusBarItem Width="50">
                         <ProgressBar Value="30" Width="80" Height="18"/>
-                    </StatusBarItem> 
-                    <StatusBarItem Width="50">
-                        <Button   Content="测试"></Button>
-                    </StatusBarItem>
+                    </StatusBarItem>  
                 </StatusBar>
 
                 <!--树型与文档窗口-->
@@ -201,12 +200,14 @@
                             <!--文档窗口-->
                             <avalonDock:LayoutDocumentPaneGroup>
                                 <avalonDock:LayoutDocumentPane x:Name="layOutPaneContent">
-                                    <avalonDock:LayoutDocument Title="Document1" IconSource="image/alarm-clock-blue.png">
+                                    <!--
+                                    <avalonDock:LayoutDocument Title="文档1" IconSource="image/alarm-clock-blue.png">
                                         <StackPanel>
                                             <TextBox Name="display" Width="800" ></TextBox>
                                             <TextBox Name="display1" Width="800" ></TextBox>
                                         </StackPanel>
                                     </avalonDock:LayoutDocument>
+                                    -->
                                 </avalonDock:LayoutDocumentPane>
                             </avalonDock:LayoutDocumentPaneGroup>
 

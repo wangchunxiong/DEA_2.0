@@ -94,11 +94,11 @@ namespace DEA3
             }
         }
 
-        private bool _is_main = false;
+        private int _is_main ;
         ///// <summary>  
         ///// IS_MAIN  
         ///// </summary>  
-        public bool IS_MAIN
+        public int IS_MAIN
         {
             get { return _is_main; }
             set
@@ -208,8 +208,8 @@ namespace DEA3
                     _childrenNode.NAME = (_nodeNum + 1) + "号设备";
                     _childrenNode.DEPTI = _currentNode.DEPTI + 1;
                     _childrenNode.TYPE = NodeType.DeviceNode;
-                    _childrenNode.AddIsEnabled = true;
-                    _childrenNode.ChgIsEnabled = false;
+                    _childrenNode.AddIsEnabled = false;
+                    _childrenNode.ChgIsEnabled = true;
                     _childrenNode.DelIsEnabled = true;
                     _childrenNode.Parent = this;
                     break;

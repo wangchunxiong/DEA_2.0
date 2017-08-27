@@ -91,12 +91,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BaseEntity.cs" />
-    <Compile Include="BaseEntityTree.cs" />
     <Compile Include="ComEntity.cs" />
+    <Compile Include="Control\Window_ComSet.xaml.cs">
+      <DependentUpon>Window_ComSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GetInfoService.cs" />
     <Compile Include="DeaEntity.cs" />
     <Compile Include="DeviceEntity.cs" />
     <Compile Include="ProjectEntity.cs" />
-    <Compile Include="ViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Page Include="Control\Window_ComSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -130,13 +137,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="config_file\protocol" />
+    <None Include="config_file\protocolDevice" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="image\favicon.ico" />
     <Content Include="Win32Api.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

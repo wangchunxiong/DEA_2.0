@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DEA3.Control;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -44,24 +45,7 @@ namespace DEA3
             }
         }
 
-
-        private ProjectEntity _parentBaseEntityTree;
-        /// <summary>  
-        /// 当前节点的父节点  
-        /// </summary>  
-        public ProjectEntity ParentBaseEntityTree
-        {
-            get { return _parentBaseEntityTree; }
-            set
-            {
-                if (this._parentBaseEntityTree == null || !this._parentBaseEntityTree.Equals(value))
-                {
-                    this._parentBaseEntityTree = value;
-                    OnChangedProperty("ParentBaseEntityTree");
-                }
-            }
-        }
-
+ 
         /// <summary>  
         /// 当前节点 孩子节点数量  
         /// </summary>  
@@ -75,42 +59,37 @@ namespace DEA3
                 }
                 return 0;
             }
-        }
-
-        /// <summary>  
-        /// 当前节点所在集合的索引  
-        /// </summary>  
-        public int? Index
-        {
-
-            get
-            {
-                if (ParentBaseEntityTree != null)
-                {
-                    return this.ParentBaseEntityTree.Children.IndexOf(this);
-                }
-                else
-                { return null; }
-            }
-        }
-         
+        } 
 
         public override void AddNewItem(object currentNode)
         {
             DeaEntity _currentNode = currentNode as DeaEntity;
             ComEntity _childrenNode = new ComEntity();
+            Window_ComSet ComSetWindow;
             int _nodeNum;
             switch (_currentNode.DEPTI)
             { 
                 case 1:
                     _nodeNum = _currentNode.ChildrenCount;
                     _childrenNode.NAME = "COM" + (_nodeNum + 1);
+
+                    ComSetWindow = new Window_ComSet(_childrenNode);
+                    ComSetWindow.Title = _childrenNode.NAME + "详细设置";
+                    ComSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; 
+                    ComSetWindow.ShowDialog();
+
+                    if (ComSetWindow.IsExit)
+                    {
+                        return;
+                    }
+
                     _childrenNode.DEPTI = _currentNode.DEPTI + 1;
                     _childrenNode.TYPE = NodeType.ComNode;
                     _childrenNode.AddIsEnabled = true;
                     _childrenNode.ChgIsEnabled = false;
                     _childrenNode.DelIsEnabled = true;
                     _childrenNode.Parent = this; 
+
                     break; 
                 default:
                     break;

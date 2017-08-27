@@ -60,44 +60,7 @@ namespace DEA3
             this.TreeView_Project.DataContext = _viewModel;
              
         }
-
-        //public void ExecuteAddNewItem(BaseEntity node)
-        //{
-        //    if (node == null)
-        //        return;
-
-        //    int _depti = _viewModel.CurrentBaseEntity.DEPTI;
-        //    int _nodeNum;
-        //    display.Text = "_depti:" + _depti;
-        //    MessageBox.Show("新增节点,addNewItem方法!");
-        //    switch (_depti)
-        //    {
-        //        case 0:
-        //            _nodeNum = ((ProjectEntity)_viewModel.CurrentBaseEntity).ChildrenCount;
-        //            //AddTreeViewNode();
-        //            node.AddNewItem((_nodeNum + 1) + "号DEA", _currentNode, _depti);
-        //            break;
-        //        case 1:
-        //            MessageBox.Show("节点深度为:" + _depti);
-        //            _nodeNum = ((DeaEntity)_viewModel.CurrentBaseEntity).ChildrenCount;
-        //            //AddTreeViewNode("COM1" + (_nodeNum + 1), _currentNode, _depti);
-        //            node.AddNewItem("COM1" + (_nodeNum + 1), _currentNode, _depti);
-        //            break;
-        //        case 2:
-        //            _nodeNum = ((ComEntity)_viewModel.CurrentBaseEntity).ChildrenCount;
-        //            //AddTreeViewNode((_nodeNum + 1) + "号设备", _currentNode, _depti);
-        //            node.AddNewItem((_nodeNum + 1) + "号设备", _currentNode, _depti);
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //    ExpandTree();
-             
-        //    //MessageBox.Show("addNewItem方法!节点情况:"+node.NAME);
-           
-          
-            
-        //}
+         
 
         private void Menu_Sys_exit_Click(object sender, RoutedEventArgs e)
         {
@@ -127,7 +90,7 @@ namespace DEA3
         private void item_AddNew_Click(object sender, RoutedEventArgs e)
         {
             clickCount++;
-            LayoutAnchorable layOutAnc = new LayoutAnchorable() { Title = "新选项卡" + clickCount };
+            LayoutAnchorable layOutAnc = new LayoutAnchorable() { Title = "文档" + clickCount };
             layOutAnc.Content = new System.Windows.Controls.TextBox() { Text = "这是第" + clickCount + "个新选项卡" };
             layOutPaneContent.Children.Add(layOutAnc);
             layOutAnc.Closing += Tab_Close;//添加退出事件处理句柄=>添加的代码
@@ -372,13 +335,16 @@ namespace DEA3
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Menu_Test_Click(object sender, RoutedEventArgs e)
-        { 
-            ExpandTree();
+        {
+            //ExpandTree();
             //display.Text = "";
             //_viewModel.NodeCollection[0].Name = "根目录";
             //_viewModel.NodeCollection[0].ProjectNote = "根目录信息备注";
             //display.Text = _viewModel.NodeCollection[0].Children[0].NAME;
-
+            string s = "1,fasldfkajs";
+            string[] a;
+            a = s.Split(',');
+            MessageBox.Show( a[0] +"|"+a[1]);
            
 
         } 
