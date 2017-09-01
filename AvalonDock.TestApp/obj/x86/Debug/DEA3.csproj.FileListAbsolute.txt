@@ -105,3 +105,5 @@ E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDoc
 E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\App.baml
 E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\Control\Window_ComSet.g.cs
 E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\Control\Window_ComSet.baml
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\Control\Window_DeviceSet.g.cs
+E:\users\wcx\documents\visual studio 2015\Projects\DEA_PROJECT\DEA_2.0\AvalonDock.TestApp\obj\x86\Debug\Control\Window_DeviceSet.baml

@@ -1,14 +1,84 @@
-﻿using System;
+﻿using DEA3.Control;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using static DEA3.Control.Window_DeviceSet;
 
 namespace DEA3
 {
     public class ComEntity : BaseEntity
     {
+        private int _productId;
+        ///// <summary>  
+        ///// PROT
+        ///// </summary>  
+        public int PRODUCTID
+        {
+            get { return _productId; }
+            set
+            {
+                if (!_productId.Equals(value))
+                {
+                    _productId = value;
+                    OnChangedProperty("PRODUCTID");
+                }
+            }
+        }
+
+        private string _productName="";
+        ///// <summary>  
+        ///// PROT
+        ///// </summary>  
+        public string PRODUCTNAME
+        {
+            get { return _productName; }
+            set
+            {
+                if (!_productName.Equals(value))
+                {
+                    _productName = value;
+                    OnChangedProperty("PRODUCTNAME");
+                }
+            }
+        }
+
+        private int _port ;
+        ///// <summary>  
+        ///// PROT
+        ///// </summary>  
+        public int PORT
+        {
+            get { return _port; }
+            set
+            {
+                if (!_port.Equals(value))
+                {
+                    _port = value;
+                    OnChangedProperty("PORT");
+                }
+            }
+        }
+
+        private int _protocol_id ;
+        ///// <summary>  
+        ///// PROTOCOL  
+        ///// </summary>  
+        public int PROTOCOL_ID
+        {
+            get { return _protocol_id; }
+            set
+            {
+                if (!_protocol_id.Equals(value))
+                {
+                    _protocol_id = value;
+                    OnChangedProperty("PROTOCOL_ID");
+                }
+            }
+        }
+
         private string _protocol = "";
         ///// <summary>  
         ///// PROTOCOL  
@@ -26,11 +96,11 @@ namespace DEA3
             }
         }
 
-        private string _spd = "";
+        private int _spd ;
         ///// <summary>  
         ///// SPD  
         ///// </summary>  
-        public string SPD
+        public int SPD
         {
             get { return _spd; }
             set
@@ -43,11 +113,11 @@ namespace DEA3
             }
         }
 
-        private string _bit = "";
+        private int _bit ;
         ///// <summary>  
         ///// BIT  
         ///// </summary>  
-        public string BIT
+        public int BIT
         {
             get { return _bit; }
             set
@@ -60,11 +130,11 @@ namespace DEA3
             }
         }
 
-        private string _sync_bit = "";
+        private int _sync_bit;
         ///// <summary>  
         ///// SYNC_BIT  
         ///// </summary>  
-        public string SYNC_BIT
+        public int SYNC_BIT
         {
             get { return _sync_bit; }
             set
@@ -77,11 +147,11 @@ namespace DEA3
             }
         }
 
-        private string _stop_bit = "";
+        private int _stop_bit ;
         ///// <summary>  
         ///// STOP_BIT  
         ///// </summary>  
-        public string STOP_BIT
+        public int STOP_BIT
         {
             get { return _stop_bit; }
             set
@@ -94,11 +164,11 @@ namespace DEA3
             }
         }
 
-        private int _is_main ;
+        private bool _is_main ;
         ///// <summary>  
         ///// IS_MAIN  
         ///// </summary>  
-        public int IS_MAIN
+        public bool IS_MAIN
         {
             get { return _is_main; }
             set
@@ -145,6 +215,44 @@ namespace DEA3
             }
         }
 
+        private int _divece_id ;
+        ///// <summary>  
+        ///// STOP_ADD  
+        ///// </summary>  
+        public int DIVECE_ID
+        {
+            get { return _divece_id; }
+            set
+            {
+                if (!_divece_id.Equals(value))
+                {
+                    _divece_id = value;
+                    OnChangedProperty("DIVECE_ID");
+                }
+            }
+        }
+
+        private int _copy_num;
+        ///// <summary>  
+        ///// COPY_NUM  
+        ///// </summary>  
+        public int COPY_NUM
+        {
+            get { return _copy_num; }
+            set
+            {
+                if (!_copy_num.Equals(value))
+                {
+                    _copy_num = value;
+                    OnChangedProperty("COPY_NUM");
+                }
+            }
+        }
+
+        public void set_copy_num(object sender, MyEventArgs e)
+        {
+            this.COPY_NUM = e._copy_num;
+        }
 
         private DeaEntity _parentBaseEntityTree;
         /// <summary>  
@@ -200,23 +308,68 @@ namespace DEA3
         {
             ComEntity _currentNode = currentNode as ComEntity;
             DeviceEntity _childrenNode = new DeviceEntity();
+
+            Window_DeviceSet DeviceSetWindow; 
             int _nodeNum;
-            switch (_currentNode.DEPTI)
+            if (!_currentNode.IS_MAIN || _currentNode.ChildrenCount<1)
             { 
-                case 2:
+                switch (_currentNode.DEPTI)
+                { 
+                    case 2:
+                        _nodeNum = _currentNode.ChildrenCount;
+                        _childrenNode.NAME = (_nodeNum + 1) + "号设备";
+                        _childrenNode.DEPTI = _currentNode.DEPTI + 1;
+                        _childrenNode.TYPE = NodeType.DeviceNode;
+                        _childrenNode.SITE_NUMBER = _nodeNum + 1 ;
+                        _childrenNode.PROTOCOL = _currentNode.PROTOCOL;
+                        _childrenNode.AddIsEnabled = false;
+                        _childrenNode.ChgIsEnabled = true;
+                        _childrenNode.DelIsEnabled = true;
+                        _childrenNode.Parent = this;
+                        DeviceSetWindow = new Window_DeviceSet(_childrenNode);
+                        DeviceSetWindow.Title = _childrenNode.NAME + "详细设置";
+                        DeviceSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                        DeviceSetWindow.ShowDialog();
+                        this.COPY_NUM = DeviceSetWindow.COPY_NUM;
+
+                        if (DeviceSetWindow.IsExit)
+                        {
+                            return;
+                        } 
+                        break;
+                } 
+                if (this.COPY_NUM > 0)
+                {
+                    int a ,b;
+                    string str;
                     _nodeNum = _currentNode.ChildrenCount;
-                    _childrenNode.NAME = (_nodeNum + 1) + "号设备";
-                    _childrenNode.DEPTI = _currentNode.DEPTI + 1;
-                    _childrenNode.TYPE = NodeType.DeviceNode;
-                    _childrenNode.AddIsEnabled = false;
-                    _childrenNode.ChgIsEnabled = true;
-                    _childrenNode.DelIsEnabled = true;
-                    _childrenNode.Parent = this;
-                    break;
-                default:
-                    break;
+                    str = _childrenNode.NAME.Substring(_childrenNode.NAME.IndexOf("号"));
+                    for (int i = 1; i <= this.COPY_NUM; i++)
+                    { 
+                        DeviceEntity _newDeviceNode = new DeviceEntity();
+                        _newDeviceNode.DEPTI = _childrenNode.DEPTI + 1;
+                        _newDeviceNode.TYPE = _childrenNode.TYPE; 
+                        _newDeviceNode.PROTOCOL = _childrenNode.PROTOCOL;
+                        _newDeviceNode.AddIsEnabled = false;
+                        _newDeviceNode.ChgIsEnabled = true;
+                        _newDeviceNode.DelIsEnabled = true;
+                        _newDeviceNode.Parent = this;
+                        _newDeviceNode.DEVICE_NAME_INFO = _childrenNode.DEVICE_NAME_INFO;
+                          
+                        _newDeviceNode.NAME = (_nodeNum + i) + str;
+                        _newDeviceNode.SITE_NUMBER = _nodeNum + i;
+                        Children.Add(_newDeviceNode);
+                    }
+                }
+                else
+                {
+                    Children.Add(_childrenNode);
+                } 
             }
-            Children.Add(_childrenNode);
+            else
+            {
+                MessageBox.Show("主站COM口只能设置1台设备!","提示");
+            }
         }
 
         public override void DelItem(object currentNode)

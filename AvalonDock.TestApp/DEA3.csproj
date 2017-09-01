@@ -95,12 +95,19 @@
     <Compile Include="Control\Window_ComSet.xaml.cs">
       <DependentUpon>Window_ComSet.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Control\Window_DeviceSet.xaml.cs">
+      <DependentUpon>Window_DeviceSet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\GetInfoService.cs" />
     <Compile Include="DeaEntity.cs" />
     <Compile Include="DeviceEntity.cs" />
     <Compile Include="ProjectEntity.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Page Include="Control\Window_ComSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\Window_DeviceSet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,11 +144,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="config_file\protocol" />
-    <None Include="config_file\protocolDevice" />
+    <None Include="config_file\ProductInfo" />
+    <None Include="config_file\ProductProtocol" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\favicon.ico" />
+    <None Include="config_file\ProductDevice" />
+    <None Include="config_file\DeviceBaseAdd" />
     <Content Include="Win32Api.txt" />
   </ItemGroup>
   <ItemGroup />

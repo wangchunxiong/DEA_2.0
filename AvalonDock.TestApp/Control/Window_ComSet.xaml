@@ -17,7 +17,7 @@
         <ObjectDataProvider x:Key="GetBitList" ObjectType="{x:Type dd:GetInfoService}"  MethodName="GetBitList"></ObjectDataProvider>
         <ObjectDataProvider x:Key="GetSyncBitList" ObjectType="{x:Type dd:GetInfoService}"  MethodName="GetSyncBitList"></ObjectDataProvider>
         <ObjectDataProvider x:Key="GetStopBitList" ObjectType="{x:Type dd:GetInfoService}"  MethodName="GetStopBitList"></ObjectDataProvider>
-        <ObjectDataProvider x:Key="GetProtocolList" ObjectType="{x:Type dd:GetInfoService}"  MethodName="GetProtocolList"></ObjectDataProvider>
+        <ObjectDataProvider x:Key="GetProductList" ObjectType="{x:Type dd:GetInfoService}"  MethodName="GetProductList"></ObjectDataProvider>
         <ObjectDataProvider x:Key="GetSiteAddList" ObjectType="{x:Type dd:GetInfoService}"  MethodName="GetSiteAddList"></ObjectDataProvider>
         <ObjectDataProvider x:Key="GetIsMainList" ObjectType="{x:Type dd:GetInfoService}"  MethodName="GetIsMainList"></ObjectDataProvider>
         
@@ -48,12 +48,12 @@
             <TextBlock Text="停止位:" Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
             <ComboBox Name="grid_stop_bit" ItemsSource="{Binding Source={StaticResource GetStopBitList}}" Grid.Row="2" Grid.Column="1" Height="25" Width="88" Margin="2"></ComboBox>
             <TextBlock Text="是否主站:" Grid.Row="2" Grid.Column="2"  HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
-            <ComboBox Name="grid_is_main" ItemsSource="{Binding Source={StaticResource GetIsMainList}}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedIndex="1" Grid.Row="2" Grid.Column="3" Height="25" Width="88" Margin="2"></ComboBox>
+            <ComboBox Name="grid_is_main" ItemsSource="{Binding Source={StaticResource GetIsMainList}}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectedIndex="1" Grid.Row="2" Grid.Column="3" Height="25" Width="88" Margin="2" SelectionChanged="grid_is_main_SelectionChanged" DropDownClosed="grid_is_main_DropDownClosed" DropDownOpened="grid_is_main_DropDownOpened" ></ComboBox>
         </Grid>
         <GroupBox Header="串口协议设置" BorderBrush="Black" Margin="15,10,5,0"   Width="auto" Height="auto">
             <StackPanel Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="协议:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
-                <ComboBox Name="grid_protocol"  ItemsSource="{Binding Source={StaticResource GetProtocolList}}"  SelectedValuePath="Key" DisplayMemberPath="Value"  Width="100"  Height="25" Margin="5,0,0,0" SelectionChanged="grid_protocol_SelectionChanged"></ComboBox>
+                <ComboBox Name="grid_protocol" SelectedValuePath="ID" DisplayMemberPath="NAME"  Width="100"  Height="25" Margin="5,0,0,0" SelectionChanged="grid_protocol_SelectionChanged" Loaded="grid_protocol_Loaded" DropDownOpened="grid_protocol_DropDownOpened"></ComboBox>
                 <TextBlock Text="->" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2"></TextBlock>
                 <ComboBox Name="grid_protocol_device" DisplayMemberPath="NAME" SelectedValuePath="ID" Width="150"  Height="25" Margin="2"></ComboBox>
             </StackPanel> 

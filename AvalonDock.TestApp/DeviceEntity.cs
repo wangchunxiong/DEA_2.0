@@ -9,6 +9,40 @@ namespace DEA3
 {
    public class DeviceEntity : BaseEntity
     {
+        private int _site_number ;
+        ///// <summary>  
+        ///// SITENUMBER  
+        ///// </summary>  
+        public int SITE_NUMBER
+        {
+            get { return _site_number; }
+            set
+            {
+                if (!_site_number.Equals(value))
+                {
+                    _site_number = value;
+                    OnChangedProperty("SITE_NUMBER");
+                }
+            }
+        }
+
+        private int _site_name;
+        ///// <summary>  
+        ///// SITENUMBER  
+        ///// </summary>  
+        public int SITE_NAME
+        {
+            get { return _site_name; }
+            set
+            {
+                if (!_site_name.Equals(value))
+                {
+                    _site_name = value;
+                    OnChangedProperty("SITE_NAME");
+                }
+            }
+        }
+
         private string _protocol = "";
         ///// <summary>  
         ///// PROTOCOL  
@@ -26,22 +60,41 @@ namespace DEA3
             }
         }
 
-        private string _device_type = "";
+        private int _device_id_info;
         ///// <summary>  
         ///// DEVICE_TYPE  
         ///// </summary>  
-        public string DEVICE_TYPE
+        public int DEVICE_ID_INFO
         {
-            get { return _device_type; }
+            get { return _device_id_info; }
             set
             {
-                if (!_device_type.Equals(value))
+                if (!_device_id_info.Equals(value))
                 {
-                    _device_type = value;
-                    OnChangedProperty("DEVICE_TYPE");
+                    _device_id_info = value;
+                    OnChangedProperty("DEVICE_ID_INFO");
                 }
             }
         }
+
+        private string _device_name_info = "";
+        ///// <summary>  
+        ///// DEVICE_TYPE  
+        ///// </summary>  
+        public string DEVICE_NAME_INFO
+        {
+            get { return _device_name_info; }
+            set
+            {
+                if (!_device_name_info.Equals(value))
+                {
+                    _device_name_info = value;
+                    OnChangedProperty("DEVICE_NAME_INFO");
+                }
+            }
+        }
+
+
         private string _chg_device_add = "";
         ///// <summary>  
         ///// CHG_DEVICE_ADD  

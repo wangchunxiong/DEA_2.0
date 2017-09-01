@@ -184,7 +184,7 @@
                     <avalonDock:LayoutRoot>
                         <!--树型-->
                         <avalonDock:LayoutPanel>
-                            <avalonDock:LayoutAnchorablePane  x:Name="layOutPaneTree" DockWidth="150">
+                            <avalonDock:LayoutAnchorablePane  x:Name="layOutPaneTree" DockWidth="200">
                                 <avalonDock:LayoutAnchorable Title="工程" >
 
                                     <TreeView Name="TreeView_Project" 

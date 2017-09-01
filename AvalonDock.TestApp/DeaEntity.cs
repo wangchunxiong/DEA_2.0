@@ -26,7 +26,7 @@ namespace DEA3
                     OnChangedProperty("SN");
                 }
             }
-        }
+        } 
 
         private string _mode_type = "";
         ///// <summary>  
@@ -45,7 +45,40 @@ namespace DEA3
             }
         }
 
- 
+        private int _main_exists ;
+        ///// <summary>  
+        ///// SN  
+        ///// </summary>  
+        public int MAIN_EXISTS
+        {
+            get { return _main_exists; }
+            set
+            {
+                if (!_main_exists.Equals(value))
+                {
+                    _main_exists = value;
+                    OnChangedProperty("MAIN_EXISTS");
+                }
+            }
+        }
+
+        private int _main_device_id;
+        ///// <summary>  
+        ///// SN  
+        ///// </summary>  
+        public int MAIN_DEVICE_ID
+        {
+            get { return _main_device_id; }
+            set
+            {
+                if (!_main_device_id.Equals(value))
+                {
+                    _main_device_id = value;
+                    OnChangedProperty("MAIN_DEVICE_ID");
+                }
+            }
+        }
+
         /// <summary>  
         /// 当前节点 孩子节点数量  
         /// </summary>  
@@ -67,34 +100,39 @@ namespace DEA3
             ComEntity _childrenNode = new ComEntity();
             Window_ComSet ComSetWindow;
             int _nodeNum;
-            switch (_currentNode.DEPTI)
+            if (_currentNode.ChildrenCount< 2 )
             { 
-                case 1:
-                    _nodeNum = _currentNode.ChildrenCount;
-                    _childrenNode.NAME = "COM" + (_nodeNum + 1);
+                    switch (_currentNode.DEPTI)
+                    { 
+                        case 1:
+                            _nodeNum = _currentNode.ChildrenCount;
+                            _childrenNode.NAME = "COM" + (_nodeNum + 1);
+                            _childrenNode.PORT = _nodeNum + 1;
+                            _childrenNode.DEPTI = _currentNode.DEPTI + 1;
+                            _childrenNode.TYPE = NodeType.ComNode;
+                            _childrenNode.AddIsEnabled = true;
+                            _childrenNode.ChgIsEnabled = false;
+                            _childrenNode.DelIsEnabled = true;
+                            _childrenNode.Parent = this;
 
-                    ComSetWindow = new Window_ComSet(_childrenNode);
-                    ComSetWindow.Title = _childrenNode.NAME + "详细设置";
-                    ComSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; 
-                    ComSetWindow.ShowDialog();
+                            ComSetWindow = new Window_ComSet(_childrenNode);
+                            ComSetWindow.Title = _childrenNode.NAME + "详细设置";
+                            ComSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; 
+                            ComSetWindow.ShowDialog();
 
-                    if (ComSetWindow.IsExit)
-                    {
-                        return;
+                            if (ComSetWindow.IsExit)
+                            {
+                                return;
+                            } 
+                            break;
                     }
-
-                    _childrenNode.DEPTI = _currentNode.DEPTI + 1;
-                    _childrenNode.TYPE = NodeType.ComNode;
-                    _childrenNode.AddIsEnabled = true;
-                    _childrenNode.ChgIsEnabled = false;
-                    _childrenNode.DelIsEnabled = true;
-                    _childrenNode.Parent = this; 
-
-                    break; 
-                default:
-                    break;
+                    Children.Add(_childrenNode);
+              
             }
-            Children.Add(_childrenNode);
+            else
+            {
+                MessageBox.Show("每台DEA只能设置2个COM口!","提示");
+            }
         }
 
         public override void DelItem(object currentNode)
@@ -111,6 +149,7 @@ namespace DEA3
                 switch (_currentNode.DEPTI)
                 {
                     case 1:
+                        _currentNode.MAIN_EXISTS = 0;
                         ((ProjectEntity)_currentNode.Parent).Children.Remove(this);
                         break;
                     default:

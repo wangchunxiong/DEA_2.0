@@ -1,0 +1,6 @@
+﻿id,device_id,name,start_str,base_add,is_plc
+1,1,Mitsubishi FX3U/FX3G,D,D100-D122,1
+2,2,Mitsubishi FX3U (Ethernet),D,D100|D200,1
+3,3,DTC,,4700|4701,0
+4,4,DTA,,4700|4701,0
+5,5,宇电温控,,0100|0200,0
