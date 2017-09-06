@@ -53,9 +53,9 @@
         <GroupBox Header="串口协议设置" BorderBrush="Black" Margin="15,10,5,0"   Width="auto" Height="auto">
             <StackPanel Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="协议:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
-                <ComboBox Name="grid_protocol" SelectedValuePath="ID" DisplayMemberPath="NAME"  Width="100"  Height="25" Margin="5,0,0,0" SelectionChanged="grid_protocol_SelectionChanged" Loaded="grid_protocol_Loaded" DropDownOpened="grid_protocol_DropDownOpened"></ComboBox>
+                <ComboBox Name="grid_protocol" SelectedValuePath="ID" DisplayMemberPath="NAME"  Width="100"  Height="25" Margin="5,0,0,0" SelectionChanged="grid_protocol_SelectionChanged" Loaded="grid_protocol_Loaded" DropDownOpened="grid_protocol_DropDownOpened" GotFocus="grid_protocol_GotFocus"/>
                 <TextBlock Text="->" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2"></TextBlock>
-                <ComboBox Name="grid_protocol_device" DisplayMemberPath="NAME" SelectedValuePath="ID" Width="150"  Height="25" Margin="2"></ComboBox>
+                <ComboBox Name="grid_protocol_device" DisplayMemberPath="NAME" SelectedValuePath="ID" Width="150"  Height="25" Margin="2" GotFocus="grid_protocol_device_GotFocus" Loaded="grid_protocol_device_Loaded" DropDownOpened="grid_protocol_device_DropDownOpened"></ComboBox>
             </StackPanel> 
         </GroupBox>
         <GroupBox Header="故障处理设置" BorderBrush="Black" Margin="15,10,5,10"  Width="auto" Height="auto">

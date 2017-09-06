@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 
@@ -50,7 +51,7 @@ namespace DEA3.Data
         }
 
         //获得任务读写下拉
-        public Dictionary<string,string> GetReadWriteList()
+        public Dictionary<string, string> GetReadWriteList()
         {
             Dictionary<string, String> mydic = new Dictionary<string, string>()
             {
@@ -59,7 +60,7 @@ namespace DEA3.Data
 
             return mydic;
         }
-         
+
         //获得端口设置站号列表
         public List<String> GetSpdList()
         {
@@ -72,7 +73,7 @@ namespace DEA3.Data
             return tasklist;
         }
 
-         
+
 
         //获得端口设置位长列表
         public List<String> GetBitList()
@@ -151,13 +152,13 @@ namespace DEA3.Data
                             }
                             _array_string = array[0].Split(',');
                             tasklist.Add(Convert.ToInt32(_array_string[0]), _array_string[1]);
-                        } 
+                        }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
                         return tasklist;
-                    } 
+                    }
                 }
                 return tasklist;
             }
@@ -165,7 +166,7 @@ namespace DEA3.Data
             {
                 //MessageBox.Show("协议档案不存在！", "提示");
                 return tasklist;
-            } 
+            }
         }
 
 
@@ -177,7 +178,7 @@ namespace DEA3.Data
             string[] _array_string;
             DataTable _dt = new DataTable("mydt");
             _dt.Columns.Add("ID", typeof(int));
-            _dt.Columns.Add("NAME", typeof(string)); 
+            _dt.Columns.Add("NAME", typeof(string));
             _dt.Columns.Add("IS_MAIN", typeof(int));
             _dt.AcceptChanges();
             //string Path = Directory.GetCurrentDirectory() + "/config_file/protocol";
@@ -227,9 +228,9 @@ namespace DEA3.Data
         {
             string ReadLine;
             string[] array;
-            string[] _array_string; 
-            DataTable _dt = new DataTable("mydt"); 
-            _dt.Columns.Add("ID",typeof(int));
+            string[] _array_string;
+            DataTable _dt = new DataTable("mydt");
+            _dt.Columns.Add("ID", typeof(int));
             _dt.Columns.Add("PRODUCT_ID", typeof(int));
             _dt.Columns.Add("NAME", typeof(string));
             _dt.AcceptChanges();
@@ -239,7 +240,7 @@ namespace DEA3.Data
             {
                 StreamReader reader = new StreamReader(_ProductProtocol_path,
                                   System.Text.Encoding.GetEncoding("GB2312"));
-                 
+
                 reader.ReadLine();//先读取一行(列头)
 
                 while (reader.Peek() >= 0)
@@ -248,8 +249,8 @@ namespace DEA3.Data
                     {
                         ReadLine = reader.ReadLine();
                         if (ReadLine != "")
-                        { 
-                            array = ReadLine.Split('\n'); 
+                        {
+                            array = ReadLine.Split('\n');
                             if (array.Length == 0)
                             {
                                 //MessageBox.Show("协议档案格式错误！", "提示");
@@ -257,14 +258,14 @@ namespace DEA3.Data
                             }
                             _array_string = array[0].Split(',');
                             _dt.Rows.Add(Convert.ToInt32(_array_string[0]), _array_string[1], _array_string[2]);
-                         } 
+                        }
                     }
                     catch (Exception ex)
                     {
                         //MessageBox.Show(ex.ToString());
                         return _dt;
-                    } 
-                } 
+                    }
+                }
                 return _dt;
             }
             else
@@ -275,13 +276,13 @@ namespace DEA3.Data
 
         }
 
-        //加载明细协议列表
+        ////获得产品大类对应所有产品列表
         public DataTable GetProductProtocolDeviceList(int key)
         {
             string ReadLine;
             string[] array;
             string[] _array_string;
-            DataTable _dt = new DataTable("mydt"); 
+            DataTable _dt = new DataTable("mydt");
             _dt.Columns.Add("ID", typeof(int));
             _dt.Columns.Add("PRODUCT_ID", typeof(int));
             _dt.Columns.Add("PRODUCTPROTOCOL_ID", typeof(int));
@@ -336,7 +337,7 @@ namespace DEA3.Data
             string ReadLine;
             string[] array;
             string[] _array_string;
-            Dictionary<int,List<string>> tasklist = new Dictionary<int, List<string>>();
+            Dictionary<int, List<string>> tasklist = new Dictionary<int, List<string>>();
             List<string> _result_add_List = new List<string>();
             //string Path = Directory.GetCurrentDirectory() + "/config_file/protocol";
 
@@ -354,9 +355,9 @@ namespace DEA3.Data
                         ReadLine = reader.ReadLine();
                         if (ReadLine != "")
                         {
-                            array = ReadLine.Split('\n'); 
+                            array = ReadLine.Split('\n');
                             if (array.Length == 0)
-                            { 
+                            {
                                 //MessageBox.Show("协议档案格式错误！", "提示");
                                 return tasklist;
                             }
@@ -366,7 +367,7 @@ namespace DEA3.Data
                             //foreach (var item in _result_add_List)
                             //{
                             //每个设备所有地址加入集合
-                                tasklist.Add(Convert.ToInt32(_array_string[1]), _result_add_List);
+                            tasklist.Add(Convert.ToInt32(_array_string[1]), _result_add_List);
                             //} 
                         }
                     }
@@ -385,23 +386,23 @@ namespace DEA3.Data
             }
         }
 
-        private List<string> SplitAdd(string addStr,string start_str)
+        private List<string> SplitAdd(string addStr, string start_str)
         {
             List<string> myList = new List<string>();
-            string[] _add ;
+            string[] _add;
 
             if (addStr.Contains("|"))
             {
-                 myList = new List<string>(addStr.Split('|'));
+                myList = new List<string>(addStr.Split('|'));
             }
             else if (addStr.Contains("-"))
             {
                 int start_num;
                 int end_num;
                 _add = addStr.Split('-');
-                start_num = Convert.ToInt32(_add[0].Substring(_add[0].IndexOf(start_str)+1, _add[0].Length - start_str.Length));
+                start_num = Convert.ToInt32(_add[0].Substring(_add[0].IndexOf(start_str) + 1, _add[0].Length - start_str.Length));
                 end_num = Convert.ToInt32(_add[1].Substring(_add[1].IndexOf(start_str) + 1, _add[1].Length - start_str.Length));
-                for (int i = start_num; i <=end_num; i++)
+                for (int i = start_num; i <= end_num; i++)
                 {
                     myList.Add(start_str + i);
                     //MessageBox.Show("ADD:"+start_str + i);
@@ -409,12 +410,60 @@ namespace DEA3.Data
             }
             else
             {
-                myList = new List<string>() {addStr};
+                myList = new List<string>() { addStr };
             }
             return myList;
         }
 
+        public List<ProductInfo> ConvertToList(DataTable dt)
+        {
+            // 定义集合   
+            List<ProductInfo> ts = new List<ProductInfo>();
+            // 获得此模型的类型   
+            Type type = typeof(ProductInfo);
+            //定义一个临时变量   
+            string tempName = string.Empty;
+            //遍历DataTable中所有的数据行   
+            foreach (DataRow dr in dt.Rows)
+            {
+                ProductInfo t = new ProductInfo(); 
+                // 获得此模型的公共属性   
+                PropertyInfo[] propertys = t.GetType().GetProperties();
+                //遍历该对象的所有属性   
+                foreach (PropertyInfo pi in propertys)
+                {
+                    tempName = pi.Name;//将属性名称赋值给临时变量   
+                                       //检查DataTable是否包含此列（列名==对象的属性名）     
+                    if (dt.Columns.Contains(tempName))
+                    {
+                        // 判断此属性是否有Setter   
+                        if (!pi.CanWrite) continue;//该属性不可写，直接跳出   
+                                                   //取值   
+                        object value = dr[tempName];
+                        //如果非空，则赋给对象的属性   
+                        if (value != DBNull.Value)
+                            pi.SetValue(t, value, null);
+                    }
+                }
+                //对象添加到泛型集合中   
+                ts.Add(t);
+            }
+            return ts;
+        }
 
+        public class ProductInfo
+        {
+            public int ID { get; set; }
+            public int PRODUCT_ID { get; set; }
+            public string NAME { get; set; }
+        }
+
+        public class ChangeDataClass
+        {
+            public string _divece_Add = "";
+            public string _chg_Type = "";
+            public string _plc_Add = "";
+        }
 
     }
 }

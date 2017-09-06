@@ -64,13 +64,13 @@
                 <TextBlock Name="txt_chg_device_direction" ToolTip = "数据交换方式!" Text="交换式" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
                 <TextBlock Name="txt_chg_plc_add" ToolTip = "需要进行数据交换PLC地址!" Text="PLC地址" Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
 
-                <ComboBox Name="cob_chg_device_add"  Grid.Row="1" Grid.Column="0" Height="25"  Width="130" Margin="2,5,0,5"  IsEditable="True" IsReadOnly="False" ></ComboBox>
-                <ComboBox Name="cob_chg_device_direction" ItemsSource="{Binding Source={StaticResource GetReadWriteList}}"  SelectedValuePath="Key" DisplayMemberPath="Value" Grid.Row="1" Grid.Column="1" Height="25"   Margin="2,5,0,5"  ></ComboBox>
-                <ComboBox Name="cob_chg_plc_add"  Grid.Row="1" Grid.Column="2" Height="25"  Width="80" Margin="2,5,0,5" IsEditable="True" IsReadOnly="False" ></ComboBox>
+                <ComboBox Name="cob_chg_device_add_0"  Grid.Row="1" Grid.Column="0" Height="25"  Width="130" Margin="2,5,0,5"  IsEditable="True" IsReadOnly="False" ></ComboBox>
+                <ComboBox Name="cob_chg_device_direction_0" ItemsSource="{Binding Source={StaticResource GetReadWriteList}}"  SelectedValuePath="Key" DisplayMemberPath="Value" Grid.Row="1" Grid.Column="1" Height="25"   Margin="2,5,0,5"  ></ComboBox>
+                <ComboBox Name="cob_chg_plc_add_0"  Grid.Row="1" Grid.Column="2" Height="25"  Width="80" Margin="2,5,0,5" IsEditable="True" IsReadOnly="False" ></ComboBox>
 
-                <ComboBox Name="cob_chg_device_add2"  Grid.Row="2" Grid.Column="0" Height="25"  Width="130" Margin="2,5,0,5" IsEditable="True" IsReadOnly="False" ></ComboBox>
-                <ComboBox Name="cob_chg_device_direction2" ItemsSource="{Binding Source={StaticResource GetReadWriteList}}" SelectedValuePath="Key" DisplayMemberPath="Value" Grid.Row="2" Grid.Column="1" Height="25"   Margin="2,5,0,5" ></ComboBox>
-                <ComboBox Name="cob_chg_plc_add2" Grid.Row="2" Grid.Column="2" Height="25"  Width="80" Margin="2,5,0,5" IsEditable="True" IsReadOnly="False" ></ComboBox>
+                <ComboBox Name="cob_chg_device_add_1"  Grid.Row="2" Grid.Column="0" Height="25"  Width="130" Margin="2,5,0,5" IsEditable="True" IsReadOnly="False" ></ComboBox>
+                <ComboBox Name="cob_chg_device_direction_1" ItemsSource="{Binding Source={StaticResource GetReadWriteList}}" SelectedValuePath="Key" DisplayMemberPath="Value" Grid.Row="2" Grid.Column="1" Height="25"   Margin="2,5,0,5" ></ComboBox>
+                <ComboBox Name="cob_chg_plc_add_1" Grid.Row="2" Grid.Column="2" Height="25"  Width="80" Margin="2,5,0,5" IsEditable="True" IsReadOnly="False" ></ComboBox>
 
             </Grid>
         </GroupBox>

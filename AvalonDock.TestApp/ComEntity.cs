@@ -247,7 +247,7 @@ namespace DEA3
                     OnChangedProperty("COPY_NUM");
                 }
             }
-        }
+        } 
 
         public void set_copy_num(object sender, MyEventArgs e)
         {
@@ -302,8 +302,7 @@ namespace DEA3
                 { return null; }
             }
         }
-
-
+         
         public override void AddNewItem( object currentNode)
         {
             ComEntity _currentNode = currentNode as ComEntity;
@@ -311,65 +310,77 @@ namespace DEA3
 
             Window_DeviceSet DeviceSetWindow; 
             int _nodeNum;
+            /// <summary>  
+            ///新增设备 
+            /// </summary>
             if (!_currentNode.IS_MAIN || _currentNode.ChildrenCount<1)
             { 
-                switch (_currentNode.DEPTI)
-                { 
-                    case 2:
-                        _nodeNum = _currentNode.ChildrenCount;
-                        _childrenNode.NAME = (_nodeNum + 1) + "号设备";
-                        _childrenNode.DEPTI = _currentNode.DEPTI + 1;
-                        _childrenNode.TYPE = NodeType.DeviceNode;
-                        _childrenNode.SITE_NUMBER = _nodeNum + 1 ;
-                        _childrenNode.PROTOCOL = _currentNode.PROTOCOL;
-                        _childrenNode.AddIsEnabled = false;
-                        _childrenNode.ChgIsEnabled = true;
-                        _childrenNode.DelIsEnabled = true;
-                        _childrenNode.Parent = this;
-                        DeviceSetWindow = new Window_DeviceSet(_childrenNode);
-                        DeviceSetWindow.Title = _childrenNode.NAME + "详细设置";
-                        DeviceSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                        DeviceSetWindow.ShowDialog();
-                        this.COPY_NUM = DeviceSetWindow.COPY_NUM;
-
-                        if (DeviceSetWindow.IsExit)
-                        {
-                            return;
-                        } 
-                        break;
-                } 
-                if (this.COPY_NUM > 0)
-                {
-                    int a ,b;
-                    string str;
-                    _nodeNum = _currentNode.ChildrenCount;
-                    str = _childrenNode.NAME.Substring(_childrenNode.NAME.IndexOf("号"));
-                    for (int i = 1; i <= this.COPY_NUM; i++)
+                    switch (_currentNode.DEPTI)
                     { 
-                        DeviceEntity _newDeviceNode = new DeviceEntity();
-                        _newDeviceNode.DEPTI = _childrenNode.DEPTI + 1;
-                        _newDeviceNode.TYPE = _childrenNode.TYPE; 
-                        _newDeviceNode.PROTOCOL = _childrenNode.PROTOCOL;
-                        _newDeviceNode.AddIsEnabled = false;
-                        _newDeviceNode.ChgIsEnabled = true;
-                        _newDeviceNode.DelIsEnabled = true;
-                        _newDeviceNode.Parent = this;
-                        _newDeviceNode.DEVICE_NAME_INFO = _childrenNode.DEVICE_NAME_INFO;
-                          
-                        _newDeviceNode.NAME = (_nodeNum + i) + str;
-                        _newDeviceNode.SITE_NUMBER = _nodeNum + i;
-                        Children.Add(_newDeviceNode);
+                        case 2:
+                            _nodeNum = _currentNode.ChildrenCount;
+                            _childrenNode.NAME = (_nodeNum + 1) + "号设备";
+                            _childrenNode.DEPTI = _currentNode.DEPTI + 1;
+                            _childrenNode.TYPE = NodeType.DeviceNode;
+                            _childrenNode.SITE_NUMBER = _nodeNum + 1 ;
+                            _childrenNode.PROTOCOL = _currentNode.PROTOCOL;
+                            _childrenNode.CURRENT_STAT = CurrentOpCType.Add;
+                            _childrenNode.AddIsEnabled = false;
+                            _childrenNode.ChgIsEnabled = true;
+                            _childrenNode.DelIsEnabled = true;
+                            _childrenNode.Parent = this;
+                            DeviceSetWindow = new Window_DeviceSet(_childrenNode);
+                            DeviceSetWindow.Title = _childrenNode.NAME + "详细设置";
+                            DeviceSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                            DeviceSetWindow.ShowDialog();
+                            this.COPY_NUM = DeviceSetWindow.COPY_NUM;
+
+                            if (DeviceSetWindow.IsExit)
+                            {
+                                return;
+                            } 
+                            break;
                     }
-                }
-                else
-                {
-                    Children.Add(_childrenNode);
-                } 
+                    /// <summary>  
+                    ///生成设备自动复制数量  
+                    /// </summary> 
+                    if (this.COPY_NUM > 0)
+                    {
+                        
+                            int a, b;
+                            string str;
+                            _nodeNum = _currentNode.ChildrenCount;
+                            str = _childrenNode.NAME.Substring(_childrenNode.NAME.IndexOf("号"));
+                            for (int i = 1; i <= this.COPY_NUM; i++)
+                            {
+                                DeviceEntity _newDeviceNode = new DeviceEntity();
+                                _newDeviceNode.DEPTI = _childrenNode.DEPTI;
+                                _newDeviceNode.TYPE = _childrenNode.TYPE;
+                                _newDeviceNode.PROTOCOL = _childrenNode.PROTOCOL;
+                                _newDeviceNode.AddIsEnabled = false;
+                                _newDeviceNode.ChgIsEnabled = true;
+                                _newDeviceNode.DelIsEnabled = true;
+                                _newDeviceNode.Parent = this;
+                                _newDeviceNode.DEVICE_NAME_INFO = _childrenNode.DEVICE_NAME_INFO;
+                                _newDeviceNode.DEVICE_ID_INFO = _childrenNode.DEVICE_ID_INFO;
+                                _newDeviceNode.CHG_DATA_ARRY = _childrenNode.CHG_DATA_ARRY;
+
+                                _newDeviceNode.NAME = (_nodeNum + i) + str;
+                                _newDeviceNode.SITE_NUMBER = _nodeNum + i;
+                                Children.Add(_newDeviceNode);
+                            } 
+                    }
+                    else
+                    { 
+                        Children.Add(_childrenNode);
+                    } 
             }
             else
             {
                 MessageBox.Show("主站COM口只能设置1台设备!","提示");
+                return;
             }
+            this.COPY_NUM = 0;
         }
 
         public override void DelItem(object currentNode)
@@ -398,6 +409,33 @@ namespace DEA3
             {
                 return;
             } 
+        }
+
+        public override void ChgItem(object currentNode)
+        {
+            ComEntity _currentNode = currentNode as ComEntity;
+            _currentNode.CURRENT_STAT = CurrentOpCType.Modify;
+            Window_ComSet ComSetWindow;
+            int _nodeNum;
+            /// <summary>  
+            ///新增设备 
+            /// </summary>
+            if (_currentNode.NAME != null)
+            {
+                switch (_currentNode.DEPTI)
+                {
+                    case 2: 
+                        ComSetWindow = new Window_ComSet(_currentNode);
+                        ComSetWindow.Title = _currentNode.NAME + "【修改】详细设置";
+                        ComSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                        ComSetWindow.ShowDialog();
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("不能修改!", "提示");
+            }
         }
         public ObservableCollection<DeviceEntity> Children { get; set; } = new ObservableCollection<DeviceEntity>();
     }

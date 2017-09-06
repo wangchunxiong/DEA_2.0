@@ -139,7 +139,24 @@ namespace DEA3
                     OnChangedProperty("TYPE");
                 }
             }
-        } 
+        }
+
+        private CurrentOpCType _current_stat;
+        ///// <summary>  
+        ///// CURRENT_STAT
+        ///// </summary>  
+        public CurrentOpCType CURRENT_STAT
+        {
+            get { return _current_stat; }
+            set
+            {
+                if (!_current_stat.Equals(value))
+                {
+                    _current_stat = value;
+                    OnChangedProperty("CURRENT_STAT");
+                }
+            }
+        }
 
         public enum NodeType
         {
@@ -147,6 +164,13 @@ namespace DEA3
             DeaNode,
             ComNode,
             DeviceNode
+        }
+
+        public enum CurrentOpCType
+        {
+            Add, 
+            Modify,
+            Delete 
         }
 
         public BaseEntity Parent { get; set; }
@@ -157,7 +181,9 @@ namespace DEA3
 
         public virtual void DelItem(object currentNode) { }
 
-       
+        public virtual void ChgItem(object currentNode) { }
+
+
 
 
         #region 实现INotifyPropertyChanged 接口  

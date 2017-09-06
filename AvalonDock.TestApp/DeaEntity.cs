@@ -110,13 +110,14 @@ namespace DEA3
                             _childrenNode.PORT = _nodeNum + 1;
                             _childrenNode.DEPTI = _currentNode.DEPTI + 1;
                             _childrenNode.TYPE = NodeType.ComNode;
+                            _childrenNode.CURRENT_STAT = CurrentOpCType.Add;
                             _childrenNode.AddIsEnabled = true;
-                            _childrenNode.ChgIsEnabled = false;
+                            _childrenNode.ChgIsEnabled = true;
                             _childrenNode.DelIsEnabled = true;
                             _childrenNode.Parent = this;
 
                             ComSetWindow = new Window_ComSet(_childrenNode);
-                            ComSetWindow.Title = _childrenNode.NAME + "详细设置";
+                            ComSetWindow.Title = _childrenNode.NAME + "【新增】详细设置";
                             ComSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen; 
                             ComSetWindow.ShowDialog();
 

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DEA3.Control;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using static DEA3.Data.GetInfoService;
 
 namespace DEA3
 {
@@ -95,57 +97,74 @@ namespace DEA3
         }
 
 
-        private string _chg_device_add = "";
+        //private string _chg_device_add = "";
+        /////// <summary>  
+        /////// CHG_DEVICE_ADD  
+        /////// </summary>  
+        //public string CHG_DEVICE_ADD
+        //{
+        //    get { return _chg_device_add; }
+        //    set
+        //    {
+        //        if (!_chg_device_add.Equals(value))
+        //        {
+        //            _chg_device_add = value;
+        //            OnChangedProperty("CHG_DEVICE_ADD");
+        //        }
+        //    }
+        //}
+        //private string _chg_plc_add = "";
+        /////// <summary>  
+        /////// CHG_PLC_ADD  
+        /////// </summary>  
+        //public string CHG_PLC_ADD
+        //{
+        //    get { return _chg_plc_add; }
+        //    set
+        //    {
+        //        if (!_chg_plc_add.Equals(value))
+        //        {
+        //            _chg_plc_add = value;
+        //            OnChangedProperty("CHG_PLC_ADD");
+        //        }
+        //    }
+        //}
+        //private string _chg_type = "";
+        /////// <summary>  
+        /////// CHG_TYPE  
+        /////// </summary>  
+        //public string CHG_TYPE
+        //{
+        //    get { return _chg_type; }
+        //    set
+        //    {
+        //        if (!_chg_type.Equals(value))
+        //        {
+        //            _chg_type = value;
+        //            OnChangedProperty("CHG_TYPE");
+        //        }
+        //    }
+        //}
+
+        private List<ChangeDataClass> _chg_DAta_Arry = new List<ChangeDataClass>();
         ///// <summary>  
-        ///// CHG_DEVICE_ADD  
+        ///// CHG_DATA_ARRY  
         ///// </summary>  
-        public string CHG_DEVICE_ADD
+        public List<ChangeDataClass> CHG_DATA_ARRY
         {
-            get { return _chg_device_add; }
+            get { return _chg_DAta_Arry; }
             set
             {
-                if (!_chg_device_add.Equals(value))
+                if (!_chg_DAta_Arry.Equals(value))
                 {
-                    _chg_device_add = value;
-                    OnChangedProperty("CHG_DEVICE_ADD");
-                }
-            }
-        }
-        private string _chg_plc_add = "";
-        ///// <summary>  
-        ///// CHG_PLC_ADD  
-        ///// </summary>  
-        public string CHG_PLC_ADD
-        {
-            get { return _chg_plc_add; }
-            set
-            {
-                if (!_chg_plc_add.Equals(value))
-                {
-                    _chg_plc_add = value;
-                    OnChangedProperty("CHG_PLC_ADD");
-                }
-            }
-        }
-        private string _chg_type = "";
-        ///// <summary>  
-        ///// CHG_TYPE  
-        ///// </summary>  
-        public string CHG_TYPE
-        {
-            get { return _chg_type; }
-            set
-            {
-                if (!_chg_type.Equals(value))
-                {
-                    _chg_type = value;
-                    OnChangedProperty("CHG_TYPE");
+                    _chg_DAta_Arry = value;
+                    OnChangedProperty("CHG_DATA_ARRY");
                 }
             }
         }
 
-
-
+      
+ 
         private ComEntity _parentBaseEntityTree;
         /// <summary>  
         /// 当前节点的父节点  
@@ -179,7 +198,7 @@ namespace DEA3
                 { return null; }
             }
         }
-
+         
 
         public override void DelItem(object currentNode)
         {
@@ -207,6 +226,34 @@ namespace DEA3
             {
                 return;
             } 
+        }
+
+        public override void ChgItem(object currentNode)
+        {
+            DeviceEntity _currentNode = currentNode as DeviceEntity;
+            _currentNode.CURRENT_STAT = CurrentOpCType.Modify;
+            Window_DeviceSet DeviceSetWindow;
+            int _nodeNum;
+            /// <summary>  
+            ///新增设备 
+            /// </summary>
+            if (_currentNode.NAME != null)
+            {
+                switch (_currentNode.DEPTI)
+                {
+                    case 3:
+                        _currentNode.CURRENT_STAT = CurrentOpCType.Modify;
+                        DeviceSetWindow = new Window_DeviceSet(_currentNode);
+                        DeviceSetWindow.Title = _currentNode.NAME + "【修改】详细设置";
+                        DeviceSetWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                        DeviceSetWindow.ShowDialog();
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("不能修改!", "提示");
+            }
         }
 
     }

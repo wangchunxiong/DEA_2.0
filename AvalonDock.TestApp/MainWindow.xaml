@@ -21,7 +21,7 @@
                                                          Path=PlacementTarget.DataContext}">
                         </MenuItem>
                         <MenuItem Header="修改" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.ChgIsEnabled}"
-                              Command="{Binding DelItemCommand}"
+                              Command="{Binding ChgItemCommand}"
                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
                                                          Path=PlacementTarget.DataContext}">
                         </MenuItem>
@@ -44,7 +44,7 @@
                                                          Path=PlacementTarget.DataContext}">
                         </MenuItem>
                         <MenuItem Header="修改" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.ChgIsEnabled}"
-                              Command="{Binding DelItemCommand}"
+                              Command="{Binding ChgItemCommand}"
                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
                                                          Path=PlacementTarget.DataContext}">
                         </MenuItem>
@@ -68,7 +68,7 @@
                                                          Path=PlacementTarget.DataContext}">
                         </MenuItem>
                         <MenuItem Header="修改" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.ChgIsEnabled}"
-                              Command="{Binding DelItemCommand}"
+                              Command="{Binding ChgItemCommand}"
                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
                                                          Path=PlacementTarget.DataContext}">
                         </MenuItem>
@@ -91,7 +91,7 @@
                                                          Path=PlacementTarget.DataContext}">
                         </MenuItem>
                         <MenuItem Header="修改" IsEnabled="{Binding  RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},  Path=PlacementTarget.DataContext.ChgIsEnabled}"
-                              Command="{Binding DelItemCommand}"
+                              Command="{Binding ChgItemCommand}"
                               CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=ContextMenu},
                                                          Path=PlacementTarget.DataContext}">
                         </MenuItem>

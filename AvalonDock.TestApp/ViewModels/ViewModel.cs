@@ -48,6 +48,7 @@ namespace DEA3
 
         public RelayCommand<BaseEntity> AddNewItemCommand { get; set; }
         public RelayCommand<BaseEntity> DelItemCommand { get; set; }
+        public RelayCommand<BaseEntity> ChgItemCommand { get; set; }
 
         public ViewModel()
         {
@@ -65,6 +66,7 @@ namespace DEA3
 
             AddNewItemCommand = new RelayCommand<BaseEntity>(ExecuteAddNewItem);
             DelItemCommand = new RelayCommand<BaseEntity>(ExecuteDelItem);
+            ChgItemCommand = new RelayCommand<BaseEntity>(ExecuteGchItem);
         }
 
         BaseEntity _currentNode;
@@ -81,6 +83,14 @@ namespace DEA3
                 return;
 
             node.DelItem(node); 
+        }
+
+        public void ExecuteGchItem(BaseEntity node)
+        {
+            if (node == null)
+                return;
+
+            node.ChgItem(node);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
